@@ -1,0 +1,127 @@
+@charset "utf-8";
+/* CSS Document */
+
+@media (min-width: 320px) and (max-width: 360px) {
+	.ticket_page .tp_submit{ margin-left:20px;}
+}
+@media (min-width: 320px) and (max-width: 479px) {
+	.nav_top_margin{ margin-left:250px;}
+	.container-fluid .content_inner.fx_tp_header{ margin-left:0px;}
+	.container-fluid .content_inner.fx_tp_header .navbar-toggle{ display:none;}
+	.container-fluid.active .content_inner.fx_tp_header .navbar-toggle{ display:block;}
+	.pro_account_cont.ticket_page .search_list input[type="text"]{ width:280px;}
+}
+@media (min-width: 320px) and (max-width: 480px) {
+	.col-md-20{ width:100%;}
+	.block_cont a{ float:inherit;}
+	.mainbox{ width:90%; margin:0 auto;}
+	.search_list input[type="text"]{ width:100%; box-sizing: border-box; margin-left:0px;}
+	.firmware_tb{ width:90%;}
+	
+	
+}
+@media (min-width: 320px) and (max-width: 640px) {
+	.block_account .modal-dialog{ width:90%; margin: 0 auto;}
+	#loginform .col-md-4, #loginform .col-md-2{ text-align:center;}
+	.cus_dt_rg_modal .modal-dialog{ width:90%;}
+	.fgroup_dtrange{ display:block; overflow: hidden; clear:both; text-align:center;}
+	.fgroup_dt_range .dropdown-menu.web_profile{ width:100%;}
+}
+@media (min-width: 320px) and (max-width: 767px) {
+}
+@media (min-width: 320px) and (max-width: 768px) {
+	.container{ width:100%;}
+	.cus_fea_pop .modal-dialog{ width:90%; margin:0 auto;}
+	.proact_table table .btn{ margin-bottom:10px;}
+	.search_list input[type="text"]{ margin-bottom:0px;}
+	#addDistributor input[type="text"]{ width:100%; box-sizing:border-box;}
+	.sub_btn_head{ display:block; text-align: center; clear: both; overflow: hidden;}
+	.sub_btn_head a{ margin:0 auto; padding:0 !important; height:36px; line-height: 36px; font-size:16px;}
+	.form-group .repo_fil_top{ display:block; overflow: hidden;}
+	.fgroup_dtrange .db_label{ text-align: left; position:relative; top:-10px;}
+	.ticket_page select{ width:160px;}
+	.repo_fil_top .pl_se_drp{ display:inline;}
+	.form-inline .form-group.fg_sub{ margin:0 auto !important;}
+	.db_label{ display:inline-block; width:100px; margin-bottom:10px;}
+	.pro_account_cont .pr_header{ width:270px; margin:0 auto;}
+	.search_list input[type="text"]{ width:80%;}
+	.modal-dialog.common-modal-dialog { width: 90%;}
+}
+@media (min-width: 320px) and (max-width: 1024px) {
+/*.mega_menu_sc ul{ position:relative;}*/
+	.fg_sub{ display:block; overflow: hidden; clear:both; width:200px; text-align:center;}
+}
+@media (min-width: 320px) and (max-width: 1279px) {
+	.mega_menu_sc ul{ overflow:auto;}
+	.mega_menu_sc{ overflow:hidden;}
+	.proact_table table .btn{ margin-bottom:10px;}
+	.second_nav{height: inherit;}
+	.mega_menu_sc ul{ white-space:inherit;}
+}
+@media (min-width: 320px) and (max-width: 1365px) {
+	.proact_table table .btn{ margin-bottom:10px;}
+}
+@media (min-width: 320px) and (max-width: 1366px) {
+	.pr_act_sm_dev{ display:none;}
+	.all_act_btns img{ top:0px; margin-right:0px;}
+}
+@media (min-width: 320px) and (max-width: 1440px) {
+	/*table#users_report1 tbody td, .report_table.table>tbody>tr>td, #campaign>tbody>tr>td, .proact_table.ticket_table>thead>tr>td,  .proact_table.ticket_table>table>tbody>tr>td, #akamai_wrapper td, #plans td{ padding: 4px 10px !important;}*/
+	.proact_table table .btn { padding: 2px 4px;}
+	.ticket_table .re_unre, #akamai_wrapper .actions a { padding:0px 8px;}
+	.pagination{ margin:0px;}
+	.cus_plans tr td{ padding:0;}
+	.report_table.table thead tr td, .report_table tbody tr td { padding-right:25px !important;}
+}
+@media (min-width: 361px) and (max-width: 480px) {
+}
+@media (min-width: 361px) and (max-width: 640px) {
+}
+@media (min-width: 480px) and (max-width: 768px) {
+	.pro_account_cont .pr_header{ width:360px;}
+	.ticket_page select, .pr_header .repo_fil_top .multiselect-parent button, .pro_account_cont.ticket_page .dropdown-menu.web_profile{ width:255px;}
+	#plans_length, #plans_filter{ width:50%; float:left;}
+}
+@media (min-width: 481px) and (max-width: 767px) {
+	.col-md-20{ width:50%;}
+}
+@media (min-width: 481px) and (max-width: 640px) {
+.mainbox{ width:300px; margin:0 auto;}
+}
+@media (min-width: 641px) and (max-width: 767px) {
+	.block_account .modal-dialog{ margin: 0 auto;}
+}
+@media (min-width: 769px) and (max-width: 1180px) {
+	.container{ width:720px; margin:0 auto;}
+}
+
+
+
+@media (min-width: 1440px) {
+	/*.container-fluid.pro_broadcast_cont{ margin:20px 50px 50px  50px !important;}*/
+	
+}
+
+@media (min-width: 1920px) {
+	/*.container-fluid{ margin:0 50px;}*/
+	.col-md-20{ width:20%;}
+	.broadcast_vid_mn_cont{ font-size:14px;}
+	.vid_title{ font-size:16px;}
+	.vid_title{ }
+	.block_cont a{ margin-top:6px;}
+	.is_pad10_web_sm{ padding:0 15px;}
+	.all_act_btns{ width:680px;}
+	.modal-header h3{ font-size:28px;}
+	/*.all_act_btns .btn{ margin-right:30px;}*/
+	.proact_table table .btn{ padding:6px;}
+	/*.all_act_btns img{ width:inherit;}*/
+	.ticket_table .filter{ top:10px;}
+	.all_act_btns img.btn_default, .all_act_btns img.btn_green, .all_act_btns img.btn_orange, .all_act_btns img.btn_danger{ width: 20px;}
+	.proact_table.device_table table .btn{ padding:6px 30px;}
+	.proact_table.device_table table .btn:first-child{ margin-right:10px;}
+	.block_account .modal-dialog{ font-size:20px;}
+	.blk_act, .dt_block{ width:170px; height:34px; line-height: 34px; padding: 0;}
+	.broadcast_vid_mn_cont .rel{ min-height: 212px;
+	}
+	
+}

@@ -1,0 +1,10 @@
+@media only screen and (max-width: 600px) {
+
+    .card {
+        min-height: 250px !important;
+    }
+} 
+
+.video-clip {
+    margin-bottom: 30px;
+}   

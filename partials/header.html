@@ -1,0 +1,112 @@
+<nav class="navbar navbar-default header-nav-custom  no-mar" ng-init="init()">
+	<div class="container-fluid" ng-class = "$state.current.name == 'home.login' || $state.current.name == 'home.forgotPassword' || $state.current.name == 'home.register' || closeSideNav || $root.userModules.length==0 ? 'active' : ''" style="width:100%;">
+	<div class="content_inner fx_tp_header">
+		<!-- <div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="" id="nav_toggle" ng-click="toggleClick()" placeholder="$root.userObject.loginStatus == true && $root.userModules.length!=0">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<a class="navbar-brand logo" ng-click="$root.redierctToState();" ng-hide="$root.userModules.length!=0"> <img ng-src="{{LOGO_URL}}"> </a>
+		</div> -->
+		<img src="{{logoUrl}}" class="pull-left img-responsive" width="200" style="margin:8px;"/>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right" placeholder="$root.userObject.loginStatus == '1'">
+				<!-- <li>
+					<div class="dropdown" style="margin:10px 0 5px;">
+						<a data-toggle="dropdown" style="cursor:pointer" class="dropdown-toggle">
+							<span ng-bind="$root.userObject.userId"></span>
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li> <a href="#!/account">My Account</a> </li>
+							<li> <a ng-click="logoutUser()">Logout</a> </li>
+						</ul>
+						<p class="role_name" placeholder="$root.userRole.roleName" ng-bind="$root.userRole.roleName"></p>
+					</div>
+				</li> -->
+				<span>
+					<img ng-src="{{NAV_BTN_BG_IMG}}" width="120"/>
+					<span style="display: inline; position: relative; right: 100px; color: #fff; font-size:16px; top: 2px;">TRAINING</span>
+				</span>
+				<span>
+					<img ng-src="{{NAV_BTN_BG_IMG}}" width="120"/>
+					<span style="display: inline; position: relative; right: 100px; color: #fff; font-size:16px; top: 2px;">FEEDBACK</span>
+				</span>
+					<img ng-src="{{NAV_BTN_BG_IMG}}" width="120"/>
+					<span style="display: inline; position: relative; right: 100px; color: #fff; font-size:16px; top: 2px;">SUPPORT</span>
+
+					<img ng-src="{{NAV_BTN_BG_IMG}}" width="120"/>
+					<span style="display: inline; position: relative; right: 100px; color: #fff; font-size:16px; top: 2px;">MY ACCOUNT</span>
+
+					<img ng-src="{{NAV_BTN_BG_IMG}}" width="120"/>
+					<span style="display: inline; position: relative; right: 100px; color: #fff; font-size:16px; top: 2px;">LOGOUT</span>
+				
+			</ul>
+		</div>
+	</div>
+	</div>
+</nav>
+
+<div class="second_nav" id="side_nav">
+	<div class="mega_menu_sc">
+		<ul>
+			<li class="title main_ntitle">
+				<a class="navbar-brand logo1" ng-click="$root.redierctToState();">
+					
+				</a>
+			</li>
+			<li class="title main_ntitle" placeholder="showMainModule('so')"> <img ng-src="{{NAV_BTN_BG_IMG}}"/> <span style="display: inline; position: relative; right: 150px; color: #fff; font-size:16px; font-size: 19px; top: 2px;">TOOL SUITE</span></li>			
+			<li class="title main_ntitle" placeholder="showMainModule('mar')"> PLACEMENT SEARCH</li>
+			<li class="dr_tit dropdown-btn" placeholder="showMainModule('mar_sub')" ng-class="showActive('mar_sub') ? 'tab cc' : ''">By Video</li>
+			<div class="dropdown-container ml10"> 
+				<li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Paid_Users')"><a href="" ui-sref-active="active" ui-sref="home.users({mode:'paid'})">By Keyword</a></li>
+			</div>
+			<li class="dr_tit dropdown-btn" placeholder="showMainModule('mar_led')" ng-class="showActive('mar_led') ? 'tab cc' : ''">By Channel</li>
+			<div class="dropdown-container ml10">
+				<!-- <li ng-click="$root.closeMenu();"><a href="" ui-sref-active="active" ui-sref="home.banners">Banners</a></li> -->
+				<!-- <li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Free_Trail_Users')"><a href="" ui-sref-active="active" ui-sref="home.users({mode:'ft'})">Free-Trial Users</a></li> -->
+				<li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Registered_Users')"><a href="" ui-sref-active="active" ui-sref="home.users({mode:'reg'})">Registered Users</a></li>
+				<li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Request_Demo')"><a href="" ui-sref-active="active" ui-sref="home.tickets">Request Demo</a></li>
+				<li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Campaigns_Marketing')"><a href="" ui-sref-active="active" ui-sref="home.campaigns">Campaigns</a></li>
+				<li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Campaigns_Resellers')"><a href="" ui-sref-active="active" ui-sref="home.resellers">Resellers</a></li>
+				<li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Campaigns_Premium_Offer')"><a href="" ui-sref-active="active" ui-sref="home.premiumOffer">Premium Offer</a></li>
+			</div>
+		</ul>
+	</div>
+</div>
+
+<script>
+	// (function($){
+	// 	$("#side_nav").mCustomScrollbar({
+	// 		setHeight:100,
+	// 		theme:"minimal-dark",
+	// 		mouseWheelPixels: 500,
+	// 		mouseWheel: {
+    //                 preventDefault: !0
+    //             }
+	// 	});
+	// })(jQuery);
+
+	var dropdown = document.getElementsByClassName("dropdown-btn");
+	var i;
+	for (i = 0; i < dropdown.length; i++) {
+		dropdown[i].addEventListener("click", function () {
+			this.classList.toggle("active");
+			var dropdownContent = this.nextElementSibling;
+			if (dropdownContent.style.display === "block") {
+				dropdownContent.style.display = "none";
+			} else {
+				dropdownContent.style.display = "block";
+			}
+		});
+	}
+</script>
+
+
