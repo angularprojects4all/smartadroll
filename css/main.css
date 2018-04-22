@@ -1402,7 +1402,7 @@ input:-ms-input-placeholder {font-size: 12px;} /* IE */
 .aia .tabbed .versions_cont { margin-top: 23px; }
 
 .nav-menu li {
-    display: inline-grid;
+    display: inline-grid; cursor: pointer;
 }
 .nav-menu li span {
     display: inline; position: relative; padding: 13px 25px;color: #fff;

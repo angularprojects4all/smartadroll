@@ -1,4 +1,4 @@
-<div ng-init="searchVideos();" class="mt40" class="margin-left:180px;">
+<div ng-init="searchVideos();" class="mt40" style="margin-left:250px;">
     <div class="table-responsive proact_table mt10" ng-class="loadingInProgress ? 'load_sp_tab' : '' ">
         <div class="table_loading"></div>
         <div class="not_found" ng-show="loadingInProgress">
@@ -10,39 +10,45 @@
             <thead>
                 <tr>
                     <th style="white-space:nowrap;" width="60px">S No</th>
+                    <TH>#</TH>
                     <th><a ng-click="sortType = 'user.firstName'; sortReverse = !sortReverse">Name
-                            <img class="sort_both" ng-show="sortType != 'user.firstName'" src="../images/sort_both.png" />
-                            <img ng-show="sortType == 'user.firstName' && sortReverse" class="sort_both" src="../images/sort_asc.png" />
-                            <img ng-show="sortType == 'user.firstName' && !sortReverse" class="sort_both" src="../images/sort_desc.png" />
+                            <img class="sort_both" ng-show="sortType != 'user.firstName'" src="../assets/images/sort_both.png" />
+                            <img ng-show="sortType == 'user.firstName' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
+                            <img ng-show="sortType == 'user.firstName' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
                     </a></th>
                     <th>Mobile</th>
                     <th><a ng-click="sortType = 'user.emailAddress'; sortReverse = !sortReverse">Email
-                            <img class="sort_both" ng-show="sortType != 'user.emailAddress'" src="../images/sort_both.png" />
-                            <img ng-show="sortType == 'user.emailAddress' && sortReverse" class="sort_both" src="../images/sort_asc.png" />
-                            <img ng-show="sortType == 'user.emailAddress' && !sortReverse" class="sort_both" src="../images/sort_desc.png" />
+                            <img class="sort_both" ng-show="sortType != 'user.emailAddress'" src="../assets/images/sort_both.png" />
+                            <img ng-show="sortType == 'user.emailAddress' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
+                            <img ng-show="sortType == 'user.emailAddress' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
                     </a></th>
                     
                     <th><a ng-click="sortType = 'user.onHold'; sortReverse = !sortReverse">Acc Hold
-                            <img class="sort_both" ng-show="sortType != 'user.onHold'" src="../images/sort_both.png" />
-                            <img ng-show="sortType == 'user.onHold' && sortReverse" class="sort_both" src="../images/sort_asc.png" />
-                            <img ng-show="sortType == 'user.onHold' && !sortReverse" class="sort_both" src="../images/sort_desc.png" />
+                            <img class="sort_both" ng-show="sortType != 'user.onHold'" src="../assets/images/sort_both.png" />
+                            <img ng-show="sortType == 'user.onHold' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
+                            <img ng-show="sortType == 'user.onHold' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
                     </a></th>
                     
                     <th><a ng-click="sortType = 'numOfVideos'; sortReverse = !sortReverse">Videos
-                            <img class="sort_both" ng-show="sortType != 'numOfVideos'" src="../images/sort_both.png" />
-                            <img ng-show="sortType == 'numOfVideos' && sortReverse" class="sort_both" src="../images/sort_asc.png" />
-                            <img ng-show="sortType == 'numOfVideos' && !sortReverse" class="sort_both" src="../images/sort_desc.png" />
+                            <img class="sort_both" ng-show="sortType != 'numOfVideos'" src="../assets/images/sort_both.png" />
+                            <img ng-show="sortType == 'numOfVideos' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
+                            <img ng-show="sortType == 'numOfVideos' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
                     </a></th>
                     <th><a class="wsnw" ng-click="sortType = 'user.createdAt'; sortReverse = !sortReverse">Created At
-                            <img class="sort_both" ng-show="sortType != 'user.createdAt'" src="../images/sort_both.png" />
-                            <img ng-show="sortType == 'user.createdAt' && sortReverse" class="sort_both" src="../images/sort_asc.png" />
-                            <img ng-show="sortType == 'user.createdAt' && !sortReverse" class="sort_both" src="../images/sort_desc.png" />
+                            <img class="sort_both" ng-show="sortType != 'user.createdAt'" src="../assets/images/sort_both.png" />
+                            <img ng-show="sortType == 'user.createdAt' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
+                            <img ng-show="sortType == 'user.createdAt' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
                     </a></th>
                 </tr>
             </thead>
             <tbody>
                 <tr dir-paginate="account in videos | itemsPerPage: pageSize | orderBy:sortType:sortReverse" current-page="currentPage" total-items="totalCount">
                     <td width="60px" ng-bind="$index+((currentPage-1)*pageSize) + 1"></td>
+                    <td>
+                        <div class="video-clip">
+                            <img src="//placehold.it/1170x658" class="img-responsive" width="180">
+                      </div>
+                    </td>
                     <td><span class="nowrap" title="{{account.user.firstName+' '+account.user.lastName}}" ng-bind="account.user.firstName+' '+account.user.lastName"></span></td>
                     <td title="{{account.user.mobile.indexOf('+') < 0 ? (account.user.isdCode+'-'+account.user.mobile):account.user.mobile}}">
                         <span class="nowrap" ng-bind="account.user.mobile.indexOf('+') < 0 ? (account.user.isdCode+'-'+account.user.mobile):account.user.mobile"></span>
