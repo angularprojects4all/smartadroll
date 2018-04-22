@@ -16,6 +16,27 @@
 			<a class="navbar-brand logo" ng-click="$root.redierctToState();" ng-hide="$root.userModules.length!=0"> <img ng-src="{{LOGO_URL}}"> </a>
 		</div> -->
 		<img src="{{logoUrl}}" class="pull-left img-responsive" width="200" style="margin:8px;"/>
+		<ul class="nav-menu pull-right">
+				<li>
+						<span style="background-image: url('{{NAV_BTN_BG_IMG_ACTIVE}}')">TOOLSUITE</span>
+					</li>
+					<li>
+						<span style="background-image: url('{{NAV_BTN_BG_IMG}}')"> &nbsp; &nbsp; TRAINING&nbsp; &nbsp;</span>
+					</li>
+					<li>
+						<span style="background-image: url('{{NAV_BTN_BG_IMG}}')">&nbsp; &nbsp;FEEDBACK&nbsp; &nbsp;</span>
+					</li>
+					<li>
+						<span style="background-image: url('{{NAV_BTN_BG_IMG}}')"> &nbsp; &nbsp;  SUPPORT &nbsp; &nbsp; </span>
+					</li>
+					<li>
+						<span style="background-image: url('{{NAV_BTN_BG_IMG}}')">MY ACCOUNT</span>
+					</li>
+					<li>
+						<span style="background-image: url('{{NAV_BTN_BG_IMG}}');padding:13px 34px;"> LOGOUT</span>
+					</li>
+					
+		</ul>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right" placeholder="$root.userObject.loginStatus == '1'">
 				<!-- <li>
@@ -31,22 +52,6 @@
 						<p class="role_name" placeholder="$root.userRole.roleName" ng-bind="$root.userRole.roleName"></p>
 					</div>
 				</li> -->
-				<span>
-					<img ng-src="{{NAV_BTN_BG_IMG}}" width="120"/>
-					<span style="display: inline; position: relative; right: 100px; color: #fff; font-size:16px; top: 2px;">TRAINING</span>
-				</span>
-				<span>
-					<img ng-src="{{NAV_BTN_BG_IMG}}" width="120"/>
-					<span style="display: inline; position: relative; right: 100px; color: #fff; font-size:16px; top: 2px;">FEEDBACK</span>
-				</span>
-					<img ng-src="{{NAV_BTN_BG_IMG}}" width="120"/>
-					<span style="display: inline; position: relative; right: 100px; color: #fff; font-size:16px; top: 2px;">SUPPORT</span>
-
-					<img ng-src="{{NAV_BTN_BG_IMG}}" width="120"/>
-					<span style="display: inline; position: relative; right: 100px; color: #fff; font-size:16px; top: 2px;">MY ACCOUNT</span>
-
-					<img ng-src="{{NAV_BTN_BG_IMG}}" width="120"/>
-					<span style="display: inline; position: relative; right: 100px; color: #fff; font-size:16px; top: 2px;">LOGOUT</span>
 				
 			</ul>
 		</div>
@@ -69,15 +74,6 @@
 				<li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Paid_Users')"><a href="" ui-sref-active="active" ui-sref="home.users({mode:'paid'})">By Keyword</a></li>
 			</div>
 			<li class="dr_tit dropdown-btn" placeholder="showMainModule('mar_led')" ng-class="showActive('mar_led') ? 'tab cc' : ''">By Channel</li>
-			<div class="dropdown-container ml10">
-				<!-- <li ng-click="$root.closeMenu();"><a href="" ui-sref-active="active" ui-sref="home.banners">Banners</a></li> -->
-				<!-- <li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Free_Trail_Users')"><a href="" ui-sref-active="active" ui-sref="home.users({mode:'ft'})">Free-Trial Users</a></li> -->
-				<li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Registered_Users')"><a href="" ui-sref-active="active" ui-sref="home.users({mode:'reg'})">Registered Users</a></li>
-				<li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Request_Demo')"><a href="" ui-sref-active="active" ui-sref="home.tickets">Request Demo</a></li>
-				<li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Campaigns_Marketing')"><a href="" ui-sref-active="active" ui-sref="home.campaigns">Campaigns</a></li>
-				<li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Campaigns_Resellers')"><a href="" ui-sref-active="active" ui-sref="home.resellers">Resellers</a></li>
-				<li ng-click="$root.closeMenu();" placeholder="$root.checkPermission('Campaigns_Premium_Offer')"><a href="" ui-sref-active="active" ui-sref="home.premiumOffer">Premium Offer</a></li>
-			</div>
 		</ul>
 	</div>
 </div>

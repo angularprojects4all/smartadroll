@@ -1400,3 +1400,12 @@ input:-ms-input-placeholder {font-size: 12px;} /* IE */
 .tab.cc { color: #fff;}
 .api_se input[type=text] { border: 1px solid #ccc !important; padding:0 8px; border-radius: 3px; background: #fff; box-sizing: border-box;}
 .aia .tabbed .versions_cont { margin-top: 23px; }
+
+.nav-menu li {
+    display: inline-grid;
+}
+.nav-menu li span {
+    display: inline; position: relative; padding: 13px 25px;color: #fff;
+    font-size:11px; top: 2px; background-size: 115px 42px;
+    background-repeat: no-repeat;
+}

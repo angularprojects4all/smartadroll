@@ -191,7 +191,7 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
     //         location: false
     //     });
     // });
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/toolsuite");
     $urlRouterProvider.when("", "/dashboard");
     $stateProvider.state('main', {
         url: '',
@@ -214,16 +214,16 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
     .state('home', {
         url: '',
         views: {
-            '': { templateUrl: 'partials/body.html?v=1.20180418' },
+            '': { templateUrl: 'partials/body.html' },
         }
     })
     .state('main.home1', {
-        url: '/', templateUrl: 'partials/home.html?v=1.20180418',
+        url: '/', templateUrl: 'partials/home.html',
         controller: 'homeCtrl'
     })
     .state('main.login', {
         url: '/login',
-        templateUrl: 'partials/planRegister.html?v=1.20180418',
+        templateUrl: 'partials/planRegister.html',
         params: {
             isEmailChanged: null
         },
@@ -231,10 +231,14 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
     })
     .state('main.register', {
         url: '/register',
-        templateUrl: 'partials/planRegister.html?v=1.20180418',
+        templateUrl: 'partials/planRegister.html',
         controller: "registerCtrl"
     })
-
+    .state('main.toolsuite', {
+        url: '/toolsuite',
+        templateUrl: 'partials/toolsuite.html',
+        controller: 'toolsuiteCtrl'
+    })
     //more states go above
 }).config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('noCacheInterceptor');
