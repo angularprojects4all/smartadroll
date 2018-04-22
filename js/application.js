@@ -191,7 +191,7 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
     //         location: false
     //     });
     // });
-    $urlRouterProvider.otherwise("/toolsuite");
+    $urlRouterProvider.otherwise("/login");
     $urlRouterProvider.when("", "/dashboard");
     $stateProvider.state('main', {
         url: '',
@@ -223,15 +223,15 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
     })
     .state('main.login', {
         url: '/login',
-        templateUrl: 'partials/planRegister.html',
+        templateUrl: 'partials/login.html',
         params: {
             isEmailChanged: null
         },
-        controller: "registerCtrl"
+        controller: "loginCtrl"
     })
     .state('main.register', {
         url: '/register',
-        templateUrl: 'partials/planRegister.html',
+        templateUrl: 'partials/register.html',
         controller: "registerCtrl"
     })
     .state('main.toolsuite', {

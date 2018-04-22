@@ -1,11 +1,11 @@
-freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope', function ($http, cookieService, $rootScope) {
+smartAdRoll.service('apiService', ['$http', 'cookieService', '$rootScope', function ($http, cookieService, $rootScope) {
 
     this.post = function (urlSuffix, dataObj, isHeaderNeeded) {
         var promiss = {};
         if (isHeaderNeeded) {
             promiss = $http({
                 method: 'POST',
-                url: freedocastAdminServiceUrl_base + urlSuffix,
+                url: smartAdRollServiceUrl_base + urlSuffix,
                 data: dataObj ? dataObj : {},
                 headers: getHeaders()
             }).then(function (response) {
@@ -16,7 +16,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
         else {
             promiss = $http({
                 method: 'POST',
-                url: freedocastAdminServiceUrl_base + urlSuffix,
+                url: smartAdRollServiceUrl_base + urlSuffix,
                 data: dataObj ? dataObj : {},
             }).then(function (response) {
                 return response.data;
@@ -29,7 +29,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
         var credentials = cookieService.getCredentials("userCredentials");
         var promiss = {};
         promiss = $http({
-            method: 'PUT', url: freedocastAdminServiceUrl_base + urlSuffix, data: dataObj ? dataObj : {},
+            method: 'PUT', url: smartAdRollServiceUrl_base + urlSuffix, data: dataObj ? dataObj : {},
             headers: { 'Content-Type': 'application/json', 'X-User-Id': credentials ? credentials.userId : null, 'X-Auth-Token': credentials ? credentials.xAuthToken : null, 'accept-encoding': 'identity' }
         }).then(function (response) {
             return response.data;
@@ -41,7 +41,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
         var promiss = {};
         if (isHeaderNeeded) {
             promiss = $http({
-                method: 'GET', url: freedocastAdminServiceUrl_base + urlSuffix,
+                method: 'GET', url: smartAdRollServiceUrl_base + urlSuffix,
                 headers: getHeaders()
             }).then(function (response) {
                 return response.data;
@@ -51,7 +51,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
 
         else {
             promiss = $http({
-                method: 'GET', url: freedocastAdminServiceUrl_base + urlSuffix,
+                method: 'GET', url: smartAdRollServiceUrl_base + urlSuffix,
             }).then(function (response) {
                 return response.data;
             });
@@ -61,7 +61,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
 
     this.delete = function (urlSuffix, dataObj) {
         var promiss = $http({
-            method: 'DELETE', url: freedocastAdminServiceUrl_base + urlSuffix,
+            method: 'DELETE', url: smartAdRollServiceUrl_base + urlSuffix,
             headers: getHeaders(),
             data: dataObj
         }).then(function (response) {
@@ -73,7 +73,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
     this.deleteWithOutObj = function (urlSuffix, data) {
         var credentials = cookieService.getCredentials("userCredentials");
         var promiss = $http({
-            method: 'DELETE', url: freedocastAdminServiceUrl_base + urlSuffix,
+            method: 'DELETE', url: smartAdRollServiceUrl_base + urlSuffix,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-User-Id': credentials ? credentials.userId : null, 'X-Auth-Token': credentials ? credentials.xAuthToken : null },
             transformRequest: function () {
                 var str = [];
@@ -97,7 +97,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
         var promiss = {};
         promiss = $http({
             method: 'POST',
-            url: freedocastAdminServiceUrl_base + urlSuffix,
+            url: smartAdRollServiceUrl_base + urlSuffix,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-User-Id': credentials ? credentials.userId : null, 'X-Auth-Token': credentials ? credentials.xAuthToken : null },
             data: data,
             transformRequest: function (obj) {
@@ -117,7 +117,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
         var promiss = {};
         promiss = $http({
             method: 'POST',
-            url: freedocastAdminServiceUrl_base + urlSuffix,
+            url: smartAdRollServiceUrl_base + urlSuffix,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-User-Id': credentials ? credentials.userId : null, 'X-Auth-Token': credentials ? credentials.xAuthToken : null},
             data: data,
             transformRequest: function (obj) {
@@ -137,7 +137,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
         var promiss = {};
         promiss = $http({
             method: 'PUT',
-            url: freedocastAdminServiceUrl_base + urlSuffix,
+            url: smartAdRollServiceUrl_base + urlSuffix,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-User-Id': credentials ? credentials.userId : null, 'X-Auth-Token': credentials ? credentials.xAuthToken : null },
             data: data,
             transformRequest: function (obj) {
@@ -156,7 +156,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
         var credentials = cookieService.getCredentials("userCredentials");
         var promiss = $http({
             method: 'POST',
-            url: freedocastAdminServiceUrl_base + "/admin/changePassword?oldPassword=" + encodeURIComponent(oldpwd) + "&newPassword=" + encodeURIComponent(newpwd),
+            url: smartAdRollServiceUrl_base + "/admin/changePassword?oldPassword=" + encodeURIComponent(oldpwd) + "&newPassword=" + encodeURIComponent(newpwd),
             headers: { 'Content-Type': 'application/json', 'X-User-Id': credentials ? credentials.userId : null, 'X-Auth-Token': credentials ? credentials.xAuthToken : null }
         }).then(function (response) {
             return response.data;
@@ -168,7 +168,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
         var promiss = $http({
             method: 'POST',
             data: data,
-            url: freedocastAdminServiceUrl_base + '/admin/forgotPassword',
+            url: smartAdRollServiceUrl_base + '/admin/forgotPassword',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             transformRequest: function () {
                 var str = [];
@@ -186,7 +186,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
         var credentials = cookieService.getCredentials("userCredentials");
         var promiss = {};
         promiss = $http({
-            method: 'GET', url: freedocastAdminServiceUrl_base + urlSuffix,
+            method: 'GET', url: smartAdRollServiceUrl_base + urlSuffix,
             headers: { 'Content-Type': 'application/json', 'X-User-Id': credentials ? credentials.userId : null, 'X-Auth-Token': credentials ? credentials.xAuthToken : null}
         }).then(function (response) {
             return response.data;
@@ -198,7 +198,7 @@ freedocastAdmin.service('backendService', ['$http', 'cookieService', '$rootScope
         var credentials = cookieService.getCredentials("userCredentials");
         var promiss = {};
         promiss = $http({
-            method: 'GET', url: freedocastAdminServiceUrl_base + urlSuffix,
+            method: 'GET', url: smartAdRollServiceUrl_base + urlSuffix,
             headers: { 'Content-Type': 'application/json', 'X-User-Id': credentials ? credentials.userId : null, 'X-Auth-Token': credentials ? credentials.xAuthToken : null }
         }).then(function (response) {
             return response.data;

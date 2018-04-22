@@ -1,68 +1,31 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <!-- CSS-->
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <title>Small Ad Roll</title>
-        <script src="dist/sweetalert-dev.js"></script>
-        <script src="dist/sweetalert.min.js"></script>
-
-        <link rel="stylesheet" href="dist/sweetalert.css">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
-        <!--if lt IE 9
-        script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-        script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
-        -->
-    </head>
-    <body onload="showAlert()">
-        <section class="material-half-bg">
-            <div class="cover"></div>
-        </section>
-        <section class="login-content">
-            <div class="logo">
-                <img src="images/smart_ad.png">
+<h3 class="login-head" style="margin-top:40px;text-align: center">SIGN IN</h3>
+<div class="col-md-offset-3 col-md-6 col-xs-12 col-sm-12 login-content ng-scope" ng-init="init();"
+style="border: 3px solid lightgray; border-radius:7px;
+padding: 35px;">
+    <div class="logo">
+        <!-- <img src="images/smart_ad.png"> -->
+    </div>
+    <div class="login-box">
+        <form class="login-form ng-pristine ng-valid" action="" method="get">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Email" name="email" autofocus="" ng-model="user.userName">
             </div>
-            <div class="login-box">
-                <form class="login-form" action="" method="get">
-                    <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>SIGN IN</h3>
-                    <div class="form-group">
-                        <label class="control-label">USERNAME</label>
-                        <input class="form-control" type="text" placeholder="Email" name="email" autofocus>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">PASSWORD</label>
-                        <input class="form-control" type="password" name="pass" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <div class="utility">
-                            <div class="animated-checkbox">
-                            </div>
-                            <p class="semibold-text mb-0"><a data-toggle="flip">Forgot Password ?</a></p>
-                        </div>
-                    </div>
-                    <div class="form-group btn-container">
-                        <a href="./index.html" class="btn btn-primary btn-block">SIGN IN<i class="fa fa-sign-in fa-lg"></i></a>
-                    </div>
-                </form>
-                <form class="forget-form" action="index.html">
-                    <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>Forgot Password ?</h3>
-                    <div class="form-group">
-                        <label class="control-label">EMAIL</label>
-                        <input class="form-control" type="text" placeholder="Email">
-                    </div>
-                    <div class="form-group btn-container">
-                        <button class="btn btn-primary btn-block">RESET<i class="fa fa-unlock fa-lg"></i></button>
-                    </div>
-                    <div class="form-group mt-20">
-                        <p class="semibold-text mb-0"><a data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i> Back to Login</a></p>
-                    </div>
-                </form>
+            <div class="form-group">
+                <input class="form-control" type="password" name="pass" placeholder="Password" ng-model="user.password">
             </div>
-        </section>
-    </body>
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/pace.min.js"></script>
-    <script src="js/main.js"></script>
-</html>
+            <div class="form-group">
+                <div class="utility">
+                    <div class="animated-checkbox">
+                    </div>
+                    <p class="semibold-text mb-0"><a data-toggle="flip">Forgot Password ?</a></p>
+                </div>
+            </div>
+            <div class="form-group btn-container">
+                <a class="" ng-click="login(user);" style="display: inline; position: relative; padding: 13px 25px;color: #fff;
+                font-size:12px; top: 2px; background-size: 115px 42px; margin-top:15px;
+                background-repeat: no-repeat; background-image: url('{{$root.NAV_BTN_BG_IMG}}')"> &nbsp; &nbsp; SIGN IN &nbsp; &nbsp; </a>
+            </div>
+        </form>
+        <!--  -->
+    </div>
+</section>

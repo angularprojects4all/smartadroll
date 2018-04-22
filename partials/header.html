@@ -16,7 +16,7 @@
 			<a class="navbar-brand logo" ng-click="$root.redierctToState();" ng-hide="$root.userModules.length!=0"> <img ng-src="{{LOGO_URL}}"> </a>
 		</div> -->
 		<img src="{{logoUrl}}" class="pull-left img-responsive" width="200" style="margin:8px;"/>
-		<ul class="nav-menu pull-right">
+		<ul class="nav-menu pull-right" ng-show="$root.userLoginStatus==true">
 				<li>
 						<span style="background-image: url('{{NAV_BTN_BG_IMG_ACTIVE}}')">TOOLSUITE</span>
 					</li>
@@ -32,7 +32,7 @@
 					<li>
 						<span style="background-image: url('{{NAV_BTN_BG_IMG}}')">MY ACCOUNT</span>
 					</li>
-					<li>
+					<li ng-click="$root.logout();">
 						<span style="background-image: url('{{NAV_BTN_BG_IMG}}');padding:13px 34px;"> LOGOUT</span>
 					</li>
 					
@@ -59,7 +59,7 @@
 	</div>
 </nav>
 
-<div class="second_nav" id="side_nav">
+<div class="second_nav" id="side_nav" ng-show="$root.userLoginStatus==true">
 	<div class="mega_menu_sc">
 		<ul>
 			<li class="title main_ntitle">
