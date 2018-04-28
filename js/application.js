@@ -174,7 +174,7 @@ smartAdRoll.directive('typeaheadShowOnFocus', function () {
 smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.html5Mode({
         enabled: true,
-        requireBase: false
+        requireBase: true
     });
     //.hashPrefix('!');
     $urlRouterProvider.rule(function ($injector, $location) {
@@ -234,10 +234,23 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
         templateUrl: 'partials/register.html',
         controller: "registerCtrl"
     })
+    .state('main.profile', {
+        url:'/profile',
+        templateUrl: 'partials/profile.html',
+        controller:'registerCtrl'
+    })
     .state('main.toolsuite', {
         url: '/toolsuite',
         templateUrl: 'partials/toolsuite.html',
         controller: 'toolsuiteCtrl'
+    })
+    .state('main.toolsuitesub', {
+        url: '/toolsuite/:criteria',
+        templateUrl: 'partials/videos.html',
+        controller:'toolsuiteCtrl',
+        params: {
+            criteria:{  }
+        }
     })
     //more states go above
 }).config(['$httpProvider', function ($httpProvider) {

@@ -68,7 +68,7 @@ table {
 	border-spacing: 0;
 }
 .ofh{overflow: hidden;}
-body { background: url(../images/mybg.png) #fff; font-family: 'Lato', sans-serif; font-size:16px; color:#666; background:#f2f2f2; }
+body { font-family: 'Roboto', sans-serif; }
 .font-awesome{ font-family: FontAwesome;}
 .padtb10{ padding:10px 0px}
 .marl15{ margin-left:15px}
@@ -86,6 +86,9 @@ body { background: url(../images/mybg.png) #fff; font-family: 'Lato', sans-serif
 .ml20{ margin-left:20px;}
 .mt5{ margin-top:5px;}
 .mt10{ margin-top:10px !important;}
+.mt100 {margin-top:100px;
+}
+.mt80 {margin-top:80px;}
 .mt15{ margin-top:15px;}
 .mt50{ margin-top:50px;}
 .mt70{ margin-top:70px;}
@@ -1364,7 +1367,7 @@ input:-ms-input-placeholder {font-size: 12px;} /* IE */
 
 .dropdown-container { display: none; }
 .dr_tit { color: #b5b5b5; }
-.dr_tit:hover { color: #fff; }
+.dr_tit:hover { color: #000; }
 .dropdown-btn .fa-caret-up, .dropdown-btn.active .fa-caret-down { display: none; }
 .dropdown-btn.active .fa-caret-up{ display: block; }
 .feat_acnt { min-height: 100px; max-height: 100px; padding: 14px 10px; }
@@ -1407,5 +1410,140 @@ input:-ms-input-placeholder {font-size: 12px;} /* IE */
 .nav-menu li span {
     display: inline; position: relative; padding: 13px 25px;color: #fff;
     font-size:11px; top: 2px; background-size: 115px 42px;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; cursor:pointer
+}
+
+/* .title.main_ntitle {
+    border:1px solid #ccc;
+} */
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background:#fafafa
+}
+.mmu td, .mmu th {
+    border:1px solid #ccc;
+}
+
+.navbar-toggle {
+    margin: 23px 0; 
+ }
+ 
+ .navbar-nav, .navbar-nav li, .navbar-nav li a {
+   height: 80px;
+   line-height: 80px;
+ }
+ 
+ .navbar-nav li a {
+   padding-top: 0;
+   padding-bottom:0;
+ }
+
+ .hidenav ul{
+    display:none;
+ }
+@media(min-width:768px) and (max-width:970px) {
+    .navbar-nav>li {
+        float:left !important;
+    }
+}
+ @media (min-width: 971px) and (max-width:4000) {
+    .navbar-toggle{
+        display: none !important;
+    }
+    .navbar-nav>li {
+        float:left !important;
+        display: none;
+     }
+    ul.nav.navbar-nav.navbar-right {
+        display: none !important;
+    }
+ }
+ @media (max-width: 970px) {
+     .navbar-toggle {
+         display:block !important;
+         position:absolute !important;
+         right:10px;
+     }
+     .unhide {
+         display:none;
+     }
+     .navbar-nav>li {
+        float:unset !important;
+     }
+ }
+ .mt150 {
+     margin-top:150px;
+ }
+ .img-center {
+    display: block;
+    margin: 0 auto;
+    width: 15.8rem;
+    height: 55px;
+    top: -10px;
+    position: relative;
+}
+.mt60 {
+    margin-top:60px;
+}
+.mt11p {
+    margin-top:11%;
+}
+.login_top {
+    min-height: 280px;
+    padding: 22px 22px;
+    background-color: #d0d0d0;
+    color: #020202;
+    font-size: 17px;
+    box-shadow: #020202;
+    display: block;
+    margin: 0 auto;
+    width: 85%;
+}
+.login_top label {
+    font-weight: 600;
+    font-stretch: semi-expanded;
+    -webkit-font-smoothing: subpixel-antialiased;
+    letter-spacing: .055px;
+    font-size:1.038rem !important;
+    line-height: 26px;
+}
+body { font-family: 'Roboto', sans-serif; }
+
+.login_input {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 10px;
+    width: 96% !important;
+    -webkit-font-smoothing: antialiased;
+    border-radius: 3px;
+    border:1px solid #eee !important;
+    background-color: #ebebeb !important;
+    border-bottom:1px solid #eee !important;
+}
+
+.login_input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size:18px;
+    font-weight:400px;
+  }
+  .login_input::-moz-placeholder { /* Firefox 19+ */
+    font-size:18px;
+    font-weight:400px;
+  }
+  .login_input:-ms-input-placeholder { /* IE 10+ */
+    font-size:18px;
+    font-weight:400px;
+  }
+  .login_input:-moz-placeholder { /* Firefox 18- */
+    font-size:18px;
+    font-weight:400px;
+  }
+  .pa {
+      position: absolute;
+  }
+.thm_link {
+    color:#939393;
+}
+.loginbg {
+    position: absolute;width:100%; height: 100%; top:0; left:0; background-size: cover;background-repeat: no-repeat;
+background-position: top;
 }

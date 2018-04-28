@@ -1,4 +1,13 @@
-<div ng-init="searchVideos();" class="mt40" style="margin-left:250px;">
+<div style="margin-left:250px;padding:20px;margin-right: 20px;" class="pull-right"><button class="btn btn-normal">Reset Filters</button></div>
+<div style="margin:20px 20px 20px 260px;padding:20px;background-color: #ffffff; min-height: 60px; border:1px solid #bbb">
+    <div class="row">
+        <form class="form-group form-inline col-md-12">
+                <label class="col-md-1 mt10">Keyword</label><input type="text" class="col-md-5 form-control" style="width:300px;height:25px; border:1px solid #ccc; border-radius:5px;" placeholder="keyword search">
+                <lable class="col-md-2 mt10">Max Results</lable><select style="width:300px; border-radius: 5px;" class="form-control col-md-5"><option>10</option></select>
+        </form>
+    </div>
+</div>
+<div ng-init="searchVideos();" class="mt40" style="margin-left:250px;padding:20px;">
     <div class="table-responsive proact_table mt10" ng-class="loadingInProgress ? 'load_sp_tab' : '' ">
         <div class="table_loading"></div>
         <div class="not_found" ng-show="loadingInProgress">
@@ -6,7 +15,7 @@
                 <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
             </center>
         </div>
-        <table class="table table-striped no-border" ng-class="noResults?'':''">
+        <table class="mmu table table-striped no-border" ng-class="noResults?'':''" style="border:1px solid #ccc;">
             <thead>
                 <tr>
                     <th style="white-space:nowrap;" width="60px">S No</th>
@@ -16,7 +25,11 @@
                             <img ng-show="sortType == 'user.firstName' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
                             <img ng-show="sortType == 'user.firstName' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
                     </a></th>
-                    <th>Mobile</th>
+                    <th><a ng-click="sortType = 'user.mobile'; sortReverse = !sortReverse">Mobile
+                        <img class="sort_both" ng-show="sortType != 'user.mobile'" src="../assets/images/sort_both.png" />
+                        <img ng-show="sortType == 'user.mobile' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
+                        <img ng-show="sortType == 'user.mobile' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
+                </a></th>
                     <th><a ng-click="sortType = 'user.emailAddress'; sortReverse = !sortReverse">Email
                             <img class="sort_both" ng-show="sortType != 'user.emailAddress'" src="../assets/images/sort_both.png" />
                             <img ng-show="sortType == 'user.emailAddress' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
@@ -82,3 +95,6 @@
         <dir-pagination-controls class="par_pagination" boundary-links="true" on-page-change="getProAccounts(newPageNumber)" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
     </div>
 </div>
+<br/><Br/><br/>
+<br/><Br/><br/>
+<br/><Br/><br/>

@@ -1,31 +1,30 @@
-<h3 class="login-head" style="margin-top:40px;text-align: center">SIGN IN</h3>
-<div class="col-md-offset-3 col-md-6 col-xs-12 col-sm-12 login-content ng-scope" ng-init="init();"
-style="border: 3px solid lightgray; border-radius:7px;
-padding: 35px;">
-    <div class="logo">
-        <!-- <img src="images/smart_ad.png"> -->
+<div class="loginbg" style="background-image: url('{{$root.LOGIN_BG}}');">
+    <!-- <h2 class="login-head" style="margin-top:150px;text-align: center; color:#fff">SIGN IN</h2> -->
+    <div class="col-md-offset-3 col-md-6 col-xs-12 col-sm-offset-2 col-sm-8 mt11p login-content ng-scope" ng-init="init();">
+        <div class="logo_wrapper">
+            <img class="img-center" src="./assets/images/Logopng.png">
+        </div>
+        <br/>
+        <div class="login_top" style="box-shadow: 1px 14px 57px 0px; -moz-box-shadow:1px 14px 57px 0px;">
+            <label for="email">Email</label>
+            <input class="login_input" style="border-radius: 4px; margin-bottom:12px;" type="text" name="email" ng-model="user.email"
+                placeholder="Enter Your Email Here" />
+            <br/>
+            <label for="password">Password</label>
+            <input class="login_input" style="border-radius: 4px; margin-bottom:22px;" type="password" name="password" ng-model="user.password"
+                placeholder="Enter Your Password Here" />
+            <input type="checkbox" class="filled-in" id="app_" ng-model="keepmesign" ng-change="">
+            <label class="checkbox_editable" for="app_" style="font-weight: normal !important; font-size: 14px !important;">Remember me</label>
+            <a class="thm_link pa col-md-push-8 col-xs-push-6 col-sm-push-7 col-lg-push-7">Forgot Your Password?</a>
+            <br/>
+            <button class="btn btn-danger" style="width: 100%; font-size: 1.85rem; font-weight: lighter; -webkit-font-smoothing: antialiased; font-smooth: -44px;"
+                type="submit" ng-click="doLogin(user, keepmesign);">Log in</button>
+
+        </div>
+        <div class="mt80">
+            <span style="color:#fff; font-size: 16px;margin-left:30%; font-weight: lighter">Don't have an account yet? </span>
+            <a ui-sref="main.register">Sign up</a>
+            <span style="color:#fff; font-size: 16px;"> here</span>
+        </div>
     </div>
-    <div class="login-box">
-        <form class="login-form ng-pristine ng-valid" action="" method="get">
-            <div class="form-group">
-                <input class="form-control" type="text" placeholder="Email" name="email" autofocus="" ng-model="user.userName">
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="password" name="pass" placeholder="Password" ng-model="user.password">
-            </div>
-            <div class="form-group">
-                <div class="utility">
-                    <div class="animated-checkbox">
-                    </div>
-                    <p class="semibold-text mb-0"><a data-toggle="flip">Forgot Password ?</a></p>
-                </div>
-            </div>
-            <div class="form-group btn-container">
-                <a class="" ng-click="login(user);" style="display: inline; position: relative; padding: 13px 25px;color: #fff;
-                font-size:12px; top: 2px; background-size: 115px 42px; margin-top:15px;
-                background-repeat: no-repeat; background-image: url('{{$root.NAV_BTN_BG_IMG}}')"> &nbsp; &nbsp; SIGN IN &nbsp; &nbsp; </a>
-            </div>
-        </form>
-        <!--  -->
-    </div>
-</section>
+</div>
