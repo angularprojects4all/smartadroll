@@ -6,6 +6,8 @@ smartAdRoll.controller('mainCtrl', function ($rootScope, $scope, $state, $locati
     $rootScope.NAV_BTN_BG_IMG = NAV_BTN_BG_IMG;
     $rootScope.NAV_BTN_BG_IMG_ACTIVE = NAV_BTN_BG_IMG_ACTIVE;
     $rootScope.LOGIN_BG = LOGIN_BG;
+    $scope.navImages = [];
+    $scope.navImages = navImages;
     $rootScope.logout = function () {
         $rootScope.userLoginStatus = false;
         StorageService.setItem("UseDetails", null);

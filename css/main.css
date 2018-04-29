@@ -1405,12 +1405,23 @@ input:-ms-input-placeholder {font-size: 12px;} /* IE */
 .aia .tabbed .versions_cont { margin-top: 23px; }
 
 .nav-menu li {
+    vertical-align: text-top;/*  can be commented later.*/
     display: inline-grid; cursor: pointer;
+    padding:0 9.7px;
 }
-.nav-menu li span {
-    display: inline; position: relative; padding: 13px 25px;color: #fff;
-    font-size:11px; top: 2px; background-size: 115px 42px;
+.nav-menu li a {
+    display: inline; position: relative; padding: 18px 12px;color: #000; /*main key change*/
+    font-size:14px; background-size: 115px 42px;
+    padding-left:25px;
     background-repeat: no-repeat; cursor:pointer
+}
+
+.nav-menu li a i img {
+    display: block;
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translate(-50%, -50%);
 }
 
 /* .title.main_ntitle {
@@ -1441,12 +1452,12 @@ input:-ms-input-placeholder {font-size: 12px;} /* IE */
  .hidenav ul{
     display:none;
  }
-@media(min-width:768px) and (max-width:970px) {
+@media(min-width:768px) and (max-width:991px) {
     .navbar-nav>li {
         float:left !important;
     }
 }
- @media (min-width: 971px) and (max-width:4000) {
+ @media (min-width: 992px) and (max-width:4000) {
     .navbar-toggle{
         display: none !important;
     }
@@ -1458,7 +1469,7 @@ input:-ms-input-placeholder {font-size: 12px;} /* IE */
         display: none !important;
     }
  }
- @media (max-width: 970px) {
+ @media (max-width: 991px) {
      .navbar-toggle {
          display:block !important;
          position:absolute !important;
@@ -1546,4 +1557,26 @@ body { font-family: 'Roboto', sans-serif; }
 .loginbg {
     position: absolute;width:100%; height: 100%; top:0; left:0; background-size: cover;background-repeat: no-repeat;
 background-position: top;
+}
+
+
+@media (max-width: 768px) {
+    .forgot_resp {
+        display: block !important;
+        left:14%;
+    }
+    .logn-btn {
+        margin-top:60px;
+    }
+}
+.logn-btn {
+    width: 100%; font-size: 1.85rem; font-weight: lighter; -webkit-font-smoothing: antialiased; font-smooth: -44px; background-color: #c20d14 !important;
+    -webkit-box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.1196)
+-moz-box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.1196)
+box-shadow: 0px 4px 0px 0px rgba(0,0,0,0.1196)}
+}
+
+.signup_pre {
+    color:#fff; font-size: 16px;margin-left:30%; font-weight: lighter; 
+                text-shadow: 1px 2px 5px rgba(0,0,0,.5);
 }

@@ -17,24 +17,24 @@
 		</div>
 		<img src="{{logoUrl}}" class="pull-left img-responsive" width="200" style="margin:8px;"/>
 		<ul class="nav-menu pull-right unhide" ng-show="$root.userLoginStatus==true" id="main_nav">
-				<li>
-						<span style="background-image: url('{{NAV_BTN_BG_IMG_ACTIVE}}')">TOOLSUITE</span>
-					</li>
-					<li>
-						<span style="background-image: url('{{NAV_BTN_BG_IMG}}')"> &nbsp; &nbsp; TRAINING&nbsp; &nbsp;</span>
-					</li>
-					<li>
-						<span style="background-image: url('{{NAV_BTN_BG_IMG}}')">&nbsp; &nbsp;FEEDBACK&nbsp; &nbsp;</span>
-					</li>
-					<li>
-						<span style="background-image: url('{{NAV_BTN_BG_IMG}}')"> &nbsp; &nbsp;  SUPPORT &nbsp; &nbsp; </span>
-					</li>
-					<li>
-						<a ui-sref="main.profile"><span style="background-image: url('{{NAV_BTN_BG_IMG}}')">MY ACCOUNT</span></a>
-					</li>
-					<li ng-click="$root.logout();">
-						<span style="background-image: url('{{NAV_BTN_BG_IMG}}');padding:13px 34px;"> LOGOUT</span>
-					</li>
+			<li>
+				<a style=""><i><img ng-src="{{navImages[0]}}" style="height: auto;" class="img-responsive"/></i>Tool Suite</a>
+			</li>
+			<li>
+				<a style=""> <i><img ng-src="{{navImages[1]}}" style="height: auto;" class="img-responsive"/></i>Training</a>
+			</li>
+			<li>
+				<a style=""><i><img ng-src="{{navImages[2]}}" style="height: auto;" class="img-responsive"/></i>Feedback</a>
+			</li>
+			<li>
+				<a style=""> <i><img ng-src="{{navImages[3]}}" style="height: auto;" class="img-responsive"/></i>Support </a>
+			</li>
+			<li>
+				<a style=""><i><img ng-src="{{navImages[4]}}" style="height: auto;" class="img-responsive"/></i>My Account</a>
+			</li>
+			<li ng-click="$root.logout();">
+				<a style=""><i><img ng-src="{{navImages[5]}}" style="height: auto;" class="img-responsive"/></i>Logout</a>
+			</li>
 					
 		</ul>
 
@@ -94,7 +94,7 @@
 			$("#bs-example-navbar-collapse-1").removeClass("hidenav"):
 			$("#bs-example-navbar-collapse-1").addClass("hidenav");
 		})
-		if ($(window).width() > (767)) {
+		if ($(window).width() > (991)) {
 			$(".navbar-nav>li").css("float","left !important");
 			$(".navbar-nav>li").css("display","none !important");
 		} else {

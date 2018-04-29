@@ -9,5 +9,11 @@ const NAV_BTN_BG_IMG = './assets/images/nav_btn_bg.png'
 const NAV_BTN_BG_IMG_ACTIVE = './assets/images/nav_btn_bg_active.png';
 const LOGIN_BG = './assets/images/login_copy.png';
 
+var navImages = [
+    '../assets/images/gearpng.png', '../assets/images/training_1png.png',
+    '../assets/images/feedback_1png.png', '../assets/images/support_1png.png',
+    '../assets/images/myaccountpng.png', '../assets/images/logoutpng.png'
+];
+
 var LOGIN_BTN_TEXT = 'Login';
 var REGISTER_BTN_TEXT = 'SUBMIT';
