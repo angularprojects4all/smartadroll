@@ -1,100 +1,132 @@
-<div style="margin-left:250px;padding:20px;margin-right: 20px;" class="pull-right"><button class="btn btn-normal">Reset Filters</button></div>
-<div style="margin:20px 20px 20px 260px;padding:20px;background-color: #ffffff; min-height: 60px; border:1px solid #bbb">
-    <div class="row">
-        <form class="form-group form-inline col-md-12">
-                <label class="col-md-1 mt10">Keyword</label><input type="text" class="col-md-5 form-control" style="width:300px;height:25px; border:1px solid #ccc; border-radius:5px;" placeholder="keyword search">
-                <lable class="col-md-2 mt10">Max Results</lable><select style="width:300px; border-radius: 5px;" class="form-control col-md-5"><option>10</option></select>
-        </form>
+<div ng-class="$root.collapse?'pullin':'pushout'">
+    <div style="padding:20px;margin-right: 20px;" class="pull-right">
+        <button class="btn btn-normal">Reset Filters</button>
     </div>
-</div>
-<div ng-init="searchVideos();" class="mt40" style="margin-left:250px;padding:20px;">
-    <div class="table-responsive proact_table mt10" ng-class="loadingInProgress ? 'load_sp_tab' : '' ">
-        <div class="table_loading"></div>
-        <div class="not_found" ng-show="loadingInProgress">
-            <center style="font-size: larger;font-weight: 500; position:absolute; top:40%; left:0; right:0;">
-                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-            </center>
+    <div style="margin:20px 20px 20px 20px;padding:20px;background-color: #ffffff;
+        min-height: 60px; border:1px solid #bbb">
+        <div class="row">
+            <form class="form-group form-inline col-md-12">
+                <label class="col-md-1 mt10">Keyword</label>
+                <input type="text" class="col-md-5 form-control" style="height:25px; border:1px solid #ccc; border-radius:5px;"
+                    placeholder="keyword search">
+                <lable class="col-md-2 mt10">Max Results</lable>
+                <select style=" border-radius: 5px;" class="form-control col-md-5">
+                    <option>10</option>
+                </select>
+            </form>
         </div>
-        <table class="mmu table table-striped no-border" ng-class="noResults?'':''" style="border:1px solid #ccc;">
-            <thead>
-                <tr>
-                    <th style="white-space:nowrap;" width="60px">S No</th>
-                    <TH>#</TH>
-                    <th><a ng-click="sortType = 'user.firstName'; sortReverse = !sortReverse">Name
-                            <img class="sort_both" ng-show="sortType != 'user.firstName'" src="../assets/images/sort_both.png" />
-                            <img ng-show="sortType == 'user.firstName' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
-                            <img ng-show="sortType == 'user.firstName' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
-                    </a></th>
-                    <th><a ng-click="sortType = 'user.mobile'; sortReverse = !sortReverse">Mobile
-                        <img class="sort_both" ng-show="sortType != 'user.mobile'" src="../assets/images/sort_both.png" />
-                        <img ng-show="sortType == 'user.mobile' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
-                        <img ng-show="sortType == 'user.mobile' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
-                </a></th>
-                    <th><a ng-click="sortType = 'user.emailAddress'; sortReverse = !sortReverse">Email
-                            <img class="sort_both" ng-show="sortType != 'user.emailAddress'" src="../assets/images/sort_both.png" />
-                            <img ng-show="sortType == 'user.emailAddress' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
-                            <img ng-show="sortType == 'user.emailAddress' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
-                    </a></th>
-                    
-                    <th><a ng-click="sortType = 'user.onHold'; sortReverse = !sortReverse">Acc Hold
-                            <img class="sort_both" ng-show="sortType != 'user.onHold'" src="../assets/images/sort_both.png" />
-                            <img ng-show="sortType == 'user.onHold' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
-                            <img ng-show="sortType == 'user.onHold' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
-                    </a></th>
-                    
-                    <th><a ng-click="sortType = 'numOfVideos'; sortReverse = !sortReverse">Videos
-                            <img class="sort_both" ng-show="sortType != 'numOfVideos'" src="../assets/images/sort_both.png" />
-                            <img ng-show="sortType == 'numOfVideos' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
-                            <img ng-show="sortType == 'numOfVideos' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
-                    </a></th>
-                    <th><a class="wsnw" ng-click="sortType = 'user.createdAt'; sortReverse = !sortReverse">Created At
-                            <img class="sort_both" ng-show="sortType != 'user.createdAt'" src="../assets/images/sort_both.png" />
-                            <img ng-show="sortType == 'user.createdAt' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
-                            <img ng-show="sortType == 'user.createdAt' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
-                    </a></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr dir-paginate="account in videos | itemsPerPage: pageSize | orderBy:sortType:sortReverse" current-page="currentPage" total-items="totalCount">
-                    <td width="60px" ng-bind="$index+((currentPage-1)*pageSize) + 1"></td>
-                    <td>
-                        <div class="video-clip">
-                            <img src="//placehold.it/1170x658" class="img-responsive" width="180">
-                      </div>
-                    </td>
-                    <td><span class="nowrap" title="{{account.user.firstName+' '+account.user.lastName}}" ng-bind="account.user.firstName+' '+account.user.lastName"></span></td>
-                    <td title="{{account.user.mobile.indexOf('+') < 0 ? (account.user.isdCode+'-'+account.user.mobile):account.user.mobile}}">
-                        <span class="nowrap" ng-bind="account.user.mobile.indexOf('+') < 0 ? (account.user.isdCode+'-'+account.user.mobile):account.user.mobile"></span>
-                    </td>
-                    <td>
-                        <div class="pr plan_name" id="h_email">
-                            <span title="{{account.user.emailAddress}}" class="nowrap" ng-bind="account.user.emailAddress"></span>
-                            <p class="hover-tooltip" ng-show="$root.checkPermission('Pro_Accounts','Copy_Email')!='DENY'&&$root.checkPermission('Pro_Accounts','Copy_Email')">
-                                <img class="im{{$index}}" src="/images/copy_rtmp_sm.png" ng-click="toClipboard(account.user.emailAddress); callTooltip($index);"
-                                 data-toggle="tooltip" data-placement="bottom" title="copy">
-                            </p>
-                        </div>
-                    </td>
-                    <td title="{{account.user.onHold ? 'Yes' : 'No'}}"><span class="nowrap" ng-bind="account.user.onHold ? 'Yes' : 'No'"></span></td>
-                    <td>
-                        <span ng-hide="$root.checkPermission('User_Videos')" ng-bind="account.numOfVideos"></span>
-                        <a class="link" ng-bind="account.numOfVideos" ng-show="account.numOfVideos>0 && $root.checkPermission('User_Videos')" ui-sref="home.userVideos({proAccount:account.user.id, userEmail:account.user.emailAddress, pageNumber:currentPage, count: totalCount})"></a>
-                        <a class="link" ng-bind="account.numOfVideos" ng-show="account.numOfVideos<=0 && $root.checkPermission('User_Videos')" href="#!/home"></a>
-                    </td>
-                    <td class="wsnw" ng-bind="account.user.createdAt|date:'dd-MM-yyyy HH:mm'"></td>
-                </tr>
-            </tbody>
-        </table>
     </div>
-    <div class="not_found" ng-show="!loadingInProgress && proAccounts.length<=0">
-        <center style="margin-top: 30px;margin-bottom: 30px;font-size: larger;font-weight: 500;">No records found</center>
-    </div>
-    <div class="pag-footer" ng-show="accountEmailSearch==''||accountEmailSearch==undefined">
-        <div class="pull-left" ng-show="totalCount>pageSize">Showing {{currentPage*pageSize-(pageSize-1)}}-{{totalCount-((currentPage-1)*pageSize)> pageSize?currentPage*pageSize:totalCount}}
-            of {{totalCount}} entries</div>
-        <dir-pagination-controls class="par_pagination" boundary-links="true" on-page-change="getProAccounts(newPageNumber)" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
+    <div ng-init="searchVideos();" class="mt40" style="padding:20px;">
+        <div class="table-responsive proact_table mt10" ng-class="loadingInProgress ? 'load_sp_tab' : '' ">
+            <div class="table_loading"></div>
+            <div class="not_found" ng-show="loadingInProgress">
+                <center style="font-size: larger;font-weight: 500; position:absolute; top:40%; left:0; right:0;">
+                    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                </center>
+            </div>
+            <table class="mmu table table-striped no-border" ng-class="noResults?'':''" style="border:1px solid #ccc;">
+                <thead>
+                    <tr>
+                        <th style="white-space:nowrap;" width="60px">S No</th>
+                        <TH>#</TH>
+                        <th>
+                            <a ng-click="sortType = 'user.firstName'; sortReverse = !sortReverse">Name
+                                <img class="sort_both" ng-show="sortType != 'user.firstName'" src="../assets/images/sort_both.png" />
+                                <img ng-show="sortType == 'user.firstName' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
+                                <img ng-show="sortType == 'user.firstName' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
+                            </a>
+                        </th>
+                        <th>
+                            <a ng-click="sortType = 'user.mobile'; sortReverse = !sortReverse">Mobile
+                                <img class="sort_both" ng-show="sortType != 'user.mobile'" src="../assets/images/sort_both.png" />
+                                <img ng-show="sortType == 'user.mobile' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
+                                <img ng-show="sortType == 'user.mobile' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
+                            </a>
+                        </th>
+                        <th>
+                            <a ng-click="sortType = 'user.emailAddress'; sortReverse = !sortReverse">Email
+                                <img class="sort_both" ng-show="sortType != 'user.emailAddress'" src="../assets/images/sort_both.png" />
+                                <img ng-show="sortType == 'user.emailAddress' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
+                                <img ng-show="sortType == 'user.emailAddress' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
+                            </a>
+                        </th>
+
+                        <th>
+                            <a ng-click="sortType = 'user.onHold'; sortReverse = !sortReverse">Acc Hold
+                                <img class="sort_both" ng-show="sortType != 'user.onHold'" src="../assets/images/sort_both.png" />
+                                <img ng-show="sortType == 'user.onHold' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
+                                <img ng-show="sortType == 'user.onHold' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
+                            </a>
+                        </th>
+
+                        <th>
+                            <a ng-click="sortType = 'numOfVideos'; sortReverse = !sortReverse">Videos
+                                <img class="sort_both" ng-show="sortType != 'numOfVideos'" src="../assets/images/sort_both.png" />
+                                <img ng-show="sortType == 'numOfVideos' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
+                                <img ng-show="sortType == 'numOfVideos' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
+                            </a>
+                        </th>
+                        <th>
+                            <a class="wsnw" ng-click="sortType = 'user.createdAt'; sortReverse = !sortReverse">Created At
+                                <img class="sort_both" ng-show="sortType != 'user.createdAt'" src="../assets/images/sort_both.png" />
+                                <img ng-show="sortType == 'user.createdAt' && sortReverse" class="sort_both" src="../assets/images/sort_asc.png" />
+                                <img ng-show="sortType == 'user.createdAt' && !sortReverse" class="sort_both" src="../assets/images/sort_desc.png" />
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr dir-paginate="account in videos | itemsPerPage: pageSize | orderBy:sortType:sortReverse" current-page="currentPage" total-items="totalCount">
+                        <td width="60px" ng-bind="$index+((currentPage-1)*pageSize) + 1"></td>
+                        <td>
+                            <div class="video-clip">
+                                <img src="//placehold.it/1170x658" class="img-responsive" width="180">
+                            </div>
+                        </td>
+                        <td>
+                            <span class="nowrap" title="{{account.user.firstName+' '+account.user.lastName}}" ng-bind="account.user.firstName+' '+account.user.lastName"></span>
+                        </td>
+                        <td title="{{account.user.mobile.indexOf('+') < 0 ? (account.user.isdCode+'-'+account.user.mobile):account.user.mobile}}">
+                            <span class="nowrap" ng-bind="account.user.mobile.indexOf('+') < 0 ? (account.user.isdCode+'-'+account.user.mobile):account.user.mobile"></span>
+                        </td>
+                        <td>
+                            <div class="pr plan_name" id="h_email">
+                                <span title="{{account.user.emailAddress}}" class="nowrap" ng-bind="account.user.emailAddress"></span>
+                                <p class="hover-tooltip" ng-show="$root.checkPermission('Pro_Accounts','Copy_Email')!='DENY'&&$root.checkPermission('Pro_Accounts','Copy_Email')">
+                                    <img class="im{{$index}}" src="/images/copy_rtmp_sm.png" ng-click="toClipboard(account.user.emailAddress); callTooltip($index);"
+                                        data-toggle="tooltip" data-placement="bottom" title="copy">
+                                </p>
+                            </div>
+                        </td>
+                        <td title="{{account.user.onHold ? 'Yes' : 'No'}}">
+                            <span class="nowrap" ng-bind="account.user.onHold ? 'Yes' : 'No'"></span>
+                        </td>
+                        <td>
+                            <span ng-hide="$root.checkPermission('User_Videos')" ng-bind="account.numOfVideos"></span>
+                            <a class="link" ng-bind="account.numOfVideos" ng-show="account.numOfVideos>0 && $root.checkPermission('User_Videos')" ui-sref="home.userVideos({proAccount:account.user.id, userEmail:account.user.emailAddress, pageNumber:currentPage, count: totalCount})"></a>
+                            <a class="link" ng-bind="account.numOfVideos" ng-show="account.numOfVideos<=0 && $root.checkPermission('User_Videos')" href="#!/home"></a>
+                        </td>
+                        <td class="wsnw" ng-bind="account.user.createdAt|date:'dd-MM-yyyy HH:mm'"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="not_found" ng-show="!loadingInProgress && proAccounts.length<=0">
+            <center style="margin-top: 30px;margin-bottom: 30px;font-size: larger;font-weight: 500;">No records found</center>
+        </div>
+        <div class="pag-footer" ng-show="accountEmailSearch==''||accountEmailSearch==undefined">
+            <div class="pull-left" ng-show="totalCount>pageSize">Showing {{currentPage*pageSize-(pageSize-1)}}-{{totalCount-((currentPage-1)*pageSize)> pageSize?currentPage*pageSize:totalCount}}
+                of {{totalCount}} entries</div>
+            <dir-pagination-controls class="par_pagination" boundary-links="true" on-page-change="getProAccounts(newPageNumber)" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
     </div>
 </div>
-<br/><Br/><br/>
-<br/><Br/><br/>
-<br/><Br/><br/>
+<br/>
+<Br/>
+<br/>
+<br/>
+<Br/>
+<br/>
+<br/>
+<Br/>
+<br/>

@@ -8,6 +8,7 @@ smartAdRoll.controller('mainCtrl', function ($rootScope, $scope, $state, $locati
     $rootScope.LOGIN_BG = LOGIN_BG;
     $scope.navImages = [];
     $scope.navImages = navImages;
+    $rootScope.collapse = false;
     $rootScope.logout = function () {
         $rootScope.userLoginStatus = false;
         StorageService.setItem("UseDetails", null);

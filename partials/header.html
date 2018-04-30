@@ -2,22 +2,16 @@
 	<div class="container-fluid" ng-class = "" style="width:100%;">
 	<div class="content_inner fx_tp_header">
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" id="nav_btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			<button type="button" class="navbar-toggle collapsed" id="nav_btn" data-toggle="collapse" data-target="#main_nav">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<!-- <a href="" id="nav_toggle" ng-click="toggleClick()" placeholder="$root.userObject.loginStatus == true && $root.userModules.length!=0">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			<a class="navbar-brand logo" ng-click="$root.redierctToState();" ng-hide="$root.userModules.length!=0"> <img ng-src="{{LOGO_URL}}"> </a> -->
 		</div>
 		<img src="{{logoUrl}}" class="pull-left img-responsive" width="200" style="margin:8px;"/>
-		<ul class="nav-menu pull-right unhide" ng-show="$root.userLoginStatus==true" id="main_nav">
-			<li>
+		<ul class="nav-menu pull-right unhide" ng-show="$root.userLoginStatus==true || $state.current.name!='main.login'" id="main_nav">
+			<li class="active">
 				<a style=""><i><img ng-src="{{navImages[0]}}" style="height: auto;" class="img-responsive"/></i>Tool Suite</a>
 			</li>
 			<li>
@@ -35,39 +29,13 @@
 			<li ng-click="$root.logout();">
 				<a style=""><i><img ng-src="{{navImages[5]}}" style="height: auto;" class="img-responsive"/></i>Logout</a>
 			</li>
-					
 		</ul>
-
-		<div class="collapse navbar-collapse hidenav" id="bs-example-navbar-collapse-1" style="height:100%; min-height: 350px; display:block;">
-			<ul class="nav navbar-nav navbar-right"
-			placeholder="$root.userObject.loginStatus == '1'" style="background:#ccc;height:100%;min-height: 350px;"
-			ng-show="$root.userLoginStatus==true">
-				<li>
-					<span >TOOLSUITE</span>
-				</li>
-				<li>
-					<span> &nbsp; &nbsp; TRAINING&nbsp; &nbsp;</span>
-				</li>
-				<li>
-					<span>&nbsp; &nbsp;FEEDBACK&nbsp; &nbsp;</span>
-				</li>
-				<li>
-					<span> &nbsp; &nbsp;  SUPPORT &nbsp; &nbsp; </span>
-				</li>
-				<li>
-					<a ui-sref="main.profile"><span>MY ACCOUNT</span></a>
-				</li>
-				<li ng-click="$root.logout();">
-					<span > LOGOUT</span>
-				</li>
-				
-			</ul>
-		</div>
 	</div>
 	</div>
 </nav>
 
-<div class="second_nav" id="side_nav" ng-show="$root.userLoginStatus==true">
+<div class="second_nav" id="side_nav" ng-show="$root.userLoginStatus==true|| $state.current.name!='main.login'"
+	ng-class="$root.collapse ? 'pullback':''">
 	<div class="mega_menu_sc">
 		<ul>
 			<li class="title main_ntitle">
@@ -75,32 +43,70 @@
 					
 				</a>
 			</li>
-			<li class="title main_ntitle" placeholder="showMainModule('so')"> <img ng-src="{{NAV_BTN_BG_IMG}}"/> <span style="display: inline; position: relative; right: 150px; color: #fff; font-size:16px; font-size: 19px; top: 2px;">TOOL SUITE</span></li>			
-			<li style="border:1px solid #ccc;" class="title main_ntitle" placeholder="showMainModule('mar')" ng-click="plclick=!!!plclick"> PLACEMENT SEARCH <i class="fa" ng-class="plclick?'fa-caret-down':'fa-caret-up'"></i></li>
-			<a href="/toolsuite"><li ng-style="{'display':plclick?'none':'block'}" class="dr_tit dropdown-btn" placeholder="showMainModule('mar_sub')" ng-class="showActive('mar_sub') ? 'tab cc' : ''">By Video</li></a>
-			<a href="/toolsuite/by-video"><li ng-style="{'display':plclick?'none':'block'}"class="dr_tit dropdown-btn" placeholder="showMainModule('mar_led')" ng-class="showActive('mar_led') ? 'tab cc' : ''">By Channel</li>
-			<li ng-style="{'display':plclick?'none':'block'}"class="dr_tit dropdown-btn" placeholder="showMainModule('mar_led')" ng-class="showActive('mar_led') ? 'tab cc' : ''">By Keyword</li>
-			<li style="border:1px solid #ccc;"class="title main_ntitle" placeholder="showMainModule('mar')"> PLACEMENT LISTS</li>
-			<li style="border:1px solid #ccc;" class="title main_ntitle" placeholder="showMainModule('mar')"> KEYWORD SEARCH</li>
-			<li style="border:1px solid #ccc;" class="title main_ntitle" placeholder="showMainModule('mar')"> KEYWORD LISTS</li>
+			<li class="title main_ntitle" placeholder="showMainModule('so')"> <img src="../assets/images/toolsuite.png"/>
+				<span style="display: inline; position: relative; font-weight: 800; color: #000; font-size: 34px;
+				top: 9px; line-height: 100px;">Tool Suite</span></li>			
+
+			<li style="border:1px solid #ccc; background: #fff; cursor: pointer; padding: 17px 23px; margin:0px;" class="title main_ntitle"
+				placeholder="showMainModule('mar')"> KEYWORD SEARCH</li>
+
+			<li style="border:1px solid #ccc; background: #fff; cursor: pointer; padding: 17px 23px; margin:0px;" class="title main_ntitle"
+				placeholder="showMainModule('mar')" ng-click="plclick=!!!plclick"> PLACEMENT SEARCH
+				<i><img ng-if="!plclick" src="../assets/images/Uppng.png" style="padding:5px;"/></i>
+				<i><img ng-if="plclick" src="../assets/images/Downpng.png" style="padding:5px;"/></i>
+
+				<a href="/toolsuite">
+					<li ng-style="{'display':plclick?'none':'block'}" style="padding: 14px 27px" class="dr_tit dropdown-btn"
+					placeholder="showMainModule('mar_sub')" ng-class="showActive('mar_sub') ? 'tab cc' : ''">
+						<span><img src="../assets/images/videopng.png"/></span>
+						<span style="margin:10px;">By Video</span>
+					</li>
+				</a>
+				<a href="/toolsuite/by-channel">
+					<li ng-style="{'display':plclick?'none':'block'}" style="padding: 14px 27px" class="dr_tit dropdown-btn"
+					placeholder="showMainModule('mar_sub')" ng-class="showActive('mar_sub') ? 'tab cc' : ''">
+						<span><img src="../assets/images/channelpng.png"/></span>
+						<span style="margin:10px;">By Channel</span>
+					</li>
+				</a>
+				<a href="/toolsuite/by-keyword">
+					<li ng-style="{'display':plclick?'none':'block'}" style="padding: 14px 27px" class="dr_tit dropdown-btn"
+					placeholder="showMainModule('mar_sub')" ng-class="showActive('mar_sub') ? 'tab cc' : ''">
+						<span><img src="../assets/images/Keywordpng.png"/></span>
+						<span style="margin:10px;">By Keyword</span>
+					</li>
+				</a>
+				<a href="/toolsuite/search/channels">
+					<li ng-style="{'display':plclick?'none':'block'}" style="padding: 14px 27px" class="dr_tit dropdown-btn"
+					placeholder="showMainModule('mar_sub')" ng-class="showActive('mar_sub') ? 'tab cc' : ''">
+						<span><img src="../assets/images/Channel Searchpng.png"/></span>
+						<span style="margin:10px;">Channel Search</span>
+					</li>
+				</a>
+			</li>
+			<li style="border:1px solid #ccc; background: #fff; cursor: pointer; padding: 17px 23px; margin:0px;" class="title main_ntitle" placeholder="showMainModule('mar')"> KEYWORD LISTS</li>
+			<li style="border:1px solid #ccc; background: #fff; cursor: pointer; padding: 17px 23px; margin:0px;"class="title main_ntitle" placeholder="showMainModule('mar')"> PLACEMENT LISTS</li>
 		</ul>
 	</div>
+	<div><img src="../assets/images/leftclosefull.png" style="top:120px;position: fixed;cursor: pointer;"
+		ng-style="{'left' : $root.collapse ? '0px' : '300px'}" ng-click="$root.collapse=!!!$root.collapse;"/></div>
 </div>
 
 <script>
 	$(document).ready(function() {
+		if ($(window).width() < 992) $(".unhide").css("display","none");
+		else $(".unhide").css("display","block");
 		$("#nav_btn").click(function() {
-			$("#bs-example-navbar-collapse-1").hasClass("hidenav") ?
-			$("#bs-example-navbar-collapse-1").removeClass("hidenav"):
-			$("#bs-example-navbar-collapse-1").addClass("hidenav");
+			$(".unhide").toggleClass("mob_hider");
+			if ($(window).width() < 992) {
+				if(!$('.unhide').hasClass("mob_hider")) {
+					$(".unhide").css("display", "none");
+				} else $(".unhide").css("display", "block");
+			}
 		})
-		if ($(window).width() > (991)) {
-			$(".navbar-nav>li").css("float","left !important");
-			$(".navbar-nav>li").css("display","none !important");
-		} else {
-			$(".navbar-nav>li").css("float","left !important");
-			$(".navbar-nav>li").css("display","block !important");
-		}
+	})
+	$(window).resize(function () {
+		if ($(window).width() < 992) $(".unhide").css("display","none"); else {$(".unhide").css("display","block"); $(".unhide").removeClass("mob_hider");}
 	})
 </script>
 
