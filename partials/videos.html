@@ -70,7 +70,7 @@
                         <div class="pr plan_name" id="h_email">
                             <span title="{{account.user.emailAddress}}" class="nowrap" ng-bind="account.user.emailAddress"></span>
                             <p class="hover-tooltip" ng-show="$root.checkPermission('Pro_Accounts','Copy_Email')!='DENY'&&$root.checkPermission('Pro_Accounts','Copy_Email')">
-                                <img class="im{{$index}}" src="/images/copy_rtmp_sm.png" ng-click="toClipboard(account.user.emailAddress); callTooltip($index);"
+                                <img class="im{{$index}}" src="" ng-click="toClipboard(account.user.emailAddress); callTooltip($index);"
                                  data-toggle="tooltip" data-placement="bottom" title="copy">
                             </p>
                         </div>

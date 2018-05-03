@@ -77,7 +77,7 @@
                 </thead>
                 <tbody>
                     <tr dir-paginate="account in videos | itemsPerPage: pageSize | orderBy:sortType:sortReverse" current-page="currentPage" total-items="totalCount">
-                        <td width="60px" ng-bind="$index+((currentPage-1)*pageSize) + 1"></td>
+                        <td width="60px" ng-bind="$index+((currentPage-1)*pageSize) + 1"></td>`
                         <td>
                             <div class="video-clip">
                                 <img src="//placehold.it/1170x658" class="img-responsive" width="180">
@@ -93,7 +93,7 @@
                             <div class="pr plan_name" id="h_email">
                                 <span title="{{account.user.emailAddress}}" class="nowrap" ng-bind="account.user.emailAddress"></span>
                                 <p class="hover-tooltip" ng-show="$root.checkPermission('Pro_Accounts','Copy_Email')!='DENY'&&$root.checkPermission('Pro_Accounts','Copy_Email')">
-                                    <img class="im{{$index}}" src="/images/copy_rtmp_sm.png" ng-click="toClipboard(account.user.emailAddress); callTooltip($index);"
+                                    <img class="im{{$index}}" src="" ng-click="toClipboard(account.user.emailAddress); callTooltip($index);"
                                         data-toggle="tooltip" data-placement="bottom" title="copy">
                                 </p>
                             </div>

@@ -9,18 +9,21 @@ smartAdRoll.controller('loginCtrl', function ($rootScope, $scope, $state, $locat
 
     $scope.doLogin = function (user, keepmesign) {
         if(user.email=='') {
-            $scope.lgnError = 'Please enter email'; return;
+            $scope.lgnError = '* Please enter email'; return;
         }
-        else if(user.password == '') { $scope.lgnError = 'Please enter password'; return;}
+        else if(user.password == '') { $scope.lgnError = '* Please enter password'; return;}
+        if(!new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(user.email)) {
+            $scope.lgnError = '* Please enter a valid Email'; return;
+        }
         if(angular.isUndefinedOrNull(user.userName)||angular.isUndefinedOrNull(user.password)) {
-            $scope.lgnError = 'Please enter mandatory fields';
+            $scope.lgnError = '* Please enter mandatory fields';
             return;
         }
         $scope.lgnError = '';
         $rootScope.userLoginStatus = true;
         StorageService.setItem("UseDetails", user);
         StorageService.setItem("status", "loggedin");
-        $state.go("main.toolsuite");
+        $location.path("/toolsuite/keyword-search");
     };
 
 });

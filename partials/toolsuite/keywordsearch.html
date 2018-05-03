@@ -1,0 +1,134 @@
+<div ng-class="$root.collapse?'pullin':'pushout'" ng-init="init();">
+    <div class="row filter_wrap">
+        <div class="col-md-5 col-sm-12">
+            <div class="filter_wrap_left di">
+                <span class="di w200" style="font-weight: 600">Keyword Search</span>
+                <!-- <h5 class="di w120" style="font-weight: 400">By Video</h5> -->
+            </div>
+            <div class="w200 di search_wrp">
+                <input type="text" class="form-control di sea" placeholder="Enter the Video Url/ID Here.." ng-model="search1" />
+            </div>
+        </div>
+        <div class="col-md-7 col-sm-12">
+            <div class="di">
+                <label style="margin-top:14px;">Sources</label><select class="di selecti fs12"><option>Google</option></select>
+                <label style="margin-top:14px;">Geotargeting</label><select class="di selecti fs12"><option>United States (.com)</option></select>
+            </div>
+            <div class="dib" ng-click="toggleSettings=!!!toggleSettings;" style="cursor: pointer;">
+                <span>
+                    <img class="di" style="padding:5px;" ng-src="{{toggleSettings?'../../../../assets/images/Uppng.png':'../../../../assets/images/Downpng.png'}}"
+                    />
+                </span>
+                <label class="dib" style="cursor: pointer; width:80px;top: 7px; position: relative;">Advanced Settings</label>
+            </div>
+            <div class="dib">
+                <button style="background: rgb(41,41,41); color:#fff; padding: .8rem 1.5rem !important; width:105px;" ng-click="search=search1" class="btn btn-default btn-lg">
+                    <i class="fa fa-search"></i>Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="filter_wrap" style="padding-top:25px;" ng-if="toggleSettings">
+        <form class="form-inline">
+            <div class="form-group col-md-6">
+                <label for="email">Language</label>
+                <select class="form-control" style="width:76%;" ng-model="filter.lang">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">License</label>
+                <select class="form-control" style="width:76%;" ng-model="filter.lang">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <br/>
+            <div class="clearfix" style="width:100%; height:24px;"></div>
+            <div class="form-group col-md-6">
+                <label for="email">Language</label>
+                <select class="form-control" style="width:76%;" ng-model="filter.lang">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">License</label>
+                <select class="form-control" style="width:76%;" ng-model="filter.lang">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <br/>
+            <div class="clearfix" style="width:100%; height:24px;"></div>
+            <div class="form-group col-md-6">
+                <label for="email">Language</label>
+                <select class="form-control" style="width:76%;" ng-model="filter.lang">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">License</label>
+                <select class="form-control" style="width:76%;" ng-model="filter.lang">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <br/>
+            <div class="clearfix" style="width:100%; height:24px;"></div>
+
+        </form>
+    </div>
+    <br/>
+    <br/>
+
+    <div class="filter_wrap">
+        <div>
+            <label class="di" style="margin:6px;font-size:1rem;">Search Results</label>
+            <div class="di" ng-show="totalCount>pageSize" style="line-height: 45px; padding-left:15px; opacity: .5">Viewing {{pageSize}}
+                entries <span>show </span><select><option>All</option></select>
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-success">Add to List</button>
+                <button class="btn btn-info">Get Keywords</button>
+                <button class="btn btn-warning">Export</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <th width=50>
+                            <input type="checkbox" class="filled-in" id="app_" ng-model="keepmesign" ng-change="">
+                            <label class="checkbox_editable" for="app_" style="font-weight: normal !important; font-size: 14px !important;"></label>
+                        </th>
+                        <th width=50>#</th>
+                        <th width=250>Keywords</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="keyword in keywords | filter: search| itemsPerPage: pageSize | orderBy:sortType:sortReverse" current-page="currentPage"
+                            total-items="totalCount">
+                            <td>
+                                <input type="checkbox" class="filled-in" id="app_" ng-model="keepmesign" ng-change="">
+                                <label class="checkbox_editable" for="app_" style="font-weight: normal !important; font-size: 14px !important;"></label>
+                            </td>
+                            <td ng-bind="$index+((currentPage-1)*pageSize) + 1"></td>
+                            <td>{{keyword.user.firstName}}</td>
+                            <td>
+                                <button class="btn btn-primary" style="width:100px; margin-bottom:0px !important; margin-right:0px !important;">
+                                    <i class="fa fa-search"></i> Search</button>
+                                <button class="btn btn-primary" style="width:100px; margin-bottom:0px !important; margin-right:0px !important;">
+                                    <i class="fa fa-search"></i> Channel</button>
+                                <button class="btn btn-primary" style="width:100px; margin-bottom:0px !important; margin-right:0px !important;">
+                                    <i class="fa fa-search"></i> Keyword</button>
+                                <button class="btn btn-hollow">
+                                    Open in Google
+                                    <i class="fa fa-external-link"></i>
+                                </button>
+                                <button class="btn btn-hollow-red">
+                                    Open in YouTube
+                                    <i class="fa fa-external-link"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pag-footer" ng-show="search==''||search==undefined">
+                    <div>Show</div><select><option>All</option></select>
+                    <dir-pagination-controls class="par_pagination" boundary-links="true" on-page-change="getAllKeywords()" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
+                </div>
+            </div>

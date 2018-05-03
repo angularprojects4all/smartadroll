@@ -237,21 +237,58 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
     .state('main.profile', {
         url:'/profile',
         templateUrl: 'partials/profile.html',
-        controller:'registerCtrl'
+        controller:function() {
+            
+        }
     })
     .state('main.toolsuite', {
         url: '/toolsuite',
         templateUrl: 'partials/toolsuite.html',
         controller: 'toolsuiteCtrl'
     })
-    .state('main.toolsuitesub', {
-        url: '/toolsuite/:criteria',
-        templateUrl: 'partials/videos.html',
-        controller:'toolsuiteCtrl',
-        params: {
-            criteria:{  }
-        }
+    .state('main.placementSearchbyvideo', {
+        url: '/toolsuite/placement-search/by-video',
+        templateUrl: 'partials/toolsuite/placement-search-byvideo.html',
+        controller: 'placementSearchVideoCtrl'
     })
+    .state('main.placementSearchbyChannel', {
+        url: '/toolsuite/placement-search/by-channel',
+        templateUrl: 'partials/toolsuite/placement-search-bychannel.html',
+        controller: 'placementSearchVideoCtrl'
+    })
+    .state('main.placementSearchbyKeyword', {
+        url: '/toolsuite/placement-search/by-keyword',
+        templateUrl: 'partials/toolsuite/placement-search-bykeyword.html',
+        controller: 'placementSearchVideoCtrl'
+    })
+    .state('main.keywordSearch', {
+        url: '/toolsuite/keyword-search',
+        templateUrl: 'partials/toolsuite/keywordsearch.html',
+        controller: 'keywordSearchCtrl'
+    })
+    .state('main.channelSearch', {
+        url: '/toolsuite/keyword-search',
+        templateUrl: 'partials/toolsuite/channelsearch.html',
+        controller: 'keywordSearchCtrl'
+    })
+    .state('main.keywordLists', {
+        url: '/toolsuite/keyword-lists',
+        templateUrl: 'partials/toolsuite/keywordlists.html',
+        controller: 'keywordSearchCtrl'
+    })
+    .state('main.placementLists', {
+        url: '/toolsuite/placement-lists',
+        templateUrl: 'partials/toolsuite/placementlists.html',
+        controller: 'keywordSearchCtrl'
+    })
+    // .state('main.toolsuitesub', {
+    //     url: '/toolsuite/:criteria',
+    //     templateUrl: 'partials/videos.html',
+    //     controller:'toolsuiteCtrl',
+    //     params: {
+    //         criteria:{  }
+    //     }
+    // })
     //more states go above
 }).config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('noCacheInterceptor');

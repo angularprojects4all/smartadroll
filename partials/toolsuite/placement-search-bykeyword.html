@@ -1,0 +1,138 @@
+<div ng-class="$root.collapse?'pullin':'pushout'" ng-init="init();">
+    <div class="row filter_wrap">
+        <div class="col-md-6 col-sm-12">
+            <div class="filter_wrap_left di">
+                <span class="di w200" style="font-weight: 600">Placement Search</span>
+                <h5 class="di w120" style="font-weight: 400">By Keyword</h5>
+            </div>
+            <div class="w200 di search_wrp">
+                <input type="text" class="form-control di sea" placeholder="Enter the Video Url/ID Here.." />
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <label style="margin-top:14px;">Max Results</label>
+                <select class="di selecti">
+                    <option>50</option>
+                </select>
+            </div>
+            <div class="col-md-3" ng-click="toggleSettings=!!!toggleSettings;" style="cursor: pointer;">
+                <span>
+                    <img class="di" style="padding:5px;" ng-src="{{toggleSettings?'../../../../assets/images/Uppng.png':'../../../../assets/images/Downpng.png'}}"
+                    />
+                </span>
+                <label class="di" style="cursor: pointer;">Advanced&nbsp; &nbsp; &nbsp; &nbsp;Settings</label>
+            </div>
+            <div class="col-md-3">
+                <button style="background: rgb(41,41,41); color:#fff; padding: .8rem 1.5rem !important;" class="btn btn-default btn-lg">
+                    <i class="fa fa-search"></i>Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="filter_wrap" style="padding-top:25px;" ng-if="toggleSettings">
+        <form class="form-inline">
+            <div class="form-group col-md-6">
+                <label for="email">Language</label>
+                <select class="form-control" style="width:76%;" ng-model="filter.lang">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">License</label>
+                <select class="form-control" style="width:76%;" ng-model="filter.lang">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <br/>
+            <div class="clearfix" style="width:100%; height:24px;"></div>
+            <div class="form-group col-md-6">
+                <label for="email">Language</label>
+                <select class="form-control" style="width:76%;" ng-model="filter.lang">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">License</label>
+                <select class="form-control" style="width:76%;" ng-model="filter.lang">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <br/>
+            <div class="clearfix" style="width:100%; height:24px;"></div>
+            <div class="form-group col-md-6">
+                <label for="email">Language</label>
+                <select class="form-control" style="width:76%;" ng-model="filter.lang">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">License</label>
+                <select class="form-control" style="width:76%;" ng-model="filter.lang">
+                    <option value="" selected>Any</option>
+                </select>
+            </div>
+            <br/>
+            <div class="clearfix" style="width:100%; height:24px;"></div>
+
+        </form>
+    </div>
+    <br/>
+    <br/>
+    <div class="filter_wrap">
+        <div>
+            <label class="di" style="margin:6px;">Search Results</label>
+            <div class="di" ng-show="totalCount>pageSize" style="line-height: 45px; padding-left:15px;">Viewing {{pageSize}} entries
+                <span>show </span>
+                <select>
+                    <option>All</option>
+                </select>
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-success">Add to List</button>
+                <button class="btn btn-info">Get Keywords</button>
+                <button class="btn btn-warning">Export</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table  table-striped table-hovered table-bordered">
+                    <thead>
+                        <th>
+                                <input type="checkbox" class="filled-in" id="app_" ng-model="keepmesign" ng-change="">
+                                <label class="checkbox_editable" for="app_" style="font-weight: normal !important; font-size: 14px !important;"></label>
+                            </th>
+                        <th>#</th>
+                        <th>Video</th>
+                        <th>Title</th>
+                        <th>Views</th>
+                        <th>Like</th>
+                        <th>Dislike</th>
+                        <th>Comments</th>
+                        <th>Published Date</th>
+
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in results">
+                            <td><input type="checkbox" class="filled-in" id="app_" ng-model="keepmesign" ng-change="">
+                                <label class="checkbox_editable" for="app_" style="font-weight: normal !important; font-size: 14px !important;"></label>
+                            </td>
+                            <td>1</td>
+                            <td>
+                                <img src="https://macphunsoftware.cachefly.net/upload/auroraLandings/shutterstock_3271226601x.jpg" width="120" height="80" />
+                            </td>
+                            <td>Hand painted Sillhoutte Nail art - Full look hair dresser Design art part 2
+                                <br/>
+                                <a>Null Channel</a>
+                                <a>Go to Video</a>
+                            </td>
+                            <td>580</td>
+                            <td>580</td>
+                            <td>580</td>
+                            <td>580</td>
+                            <td>January 24, 2018 </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

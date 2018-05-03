@@ -6,8 +6,14 @@ smartAdRoll.controller('mainCtrl', function ($rootScope, $scope, $state, $locati
     $rootScope.NAV_BTN_BG_IMG = NAV_BTN_BG_IMG;
     $rootScope.NAV_BTN_BG_IMG_ACTIVE = NAV_BTN_BG_IMG_ACTIVE;
     $rootScope.LOGIN_BG = LOGIN_BG;
+    
     $scope.navImages = [];
     $scope.navImages = navImages;
+
+    $rootScope.sideNavHeading = "Tool Suite";
+    $rootScope.sideNavActImg = "./assets/images/toolsuite.png";
+    $rootScope.sideNavSubHeading = "Placement Search";
+
     $rootScope.collapse = false;
     $rootScope.logout = function () {
         $rootScope.userLoginStatus = false;
@@ -19,5 +25,13 @@ smartAdRoll.controller('mainCtrl', function ($rootScope, $scope, $state, $locati
     $rootScope.getShowstatus = function () {
         if($state.current.name == 'main.login') return false;
         return true;
+    }
+
+    $rootScope.getSideNavSubHeading = function () {
+        return $rootScope.sideNavSubHeading;
+    };
+
+    $scope.getActiveStatus = function () {
+        return $state.current.url.indexOf('placement-search')>=0;
     }
 });
