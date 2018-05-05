@@ -2,28 +2,31 @@
     <div class="row filter_wrap">
         <div class="col-md-5 col-sm-12">
             <div class="filter_wrap_left di">
-                <span class="di w200" style="font-weight: 600">Keyword Search</span>
+                <span class="di w200 fw500" style="letter-spacing: 0.25px">Keyword Search</span>
                 <!-- <h5 class="di w120" style="font-weight: 400">By Video</h5> -->
             </div>
             <div class="w200 di search_wrp">
                 <input type="text" class="form-control di sea" placeholder="Enter the Video Url/ID Here.." ng-model="search1" />
             </div>
         </div>
-        <div class="col-md-7 col-sm-12">
+        <div class="col-md-7 col-sm-12" style="padding-left:0px !important;">
             <div class="di">
-                <label style="margin-top:14px;">Sources</label><select class="di selecti fs12"><option>Google</option></select>
-                <label style="margin-top:14px;">Geotargeting</label><select class="di selecti fs12"><option>United States (.com)</option></select>
+                <label style="margin-top:14px;">Sources &nbsp;</label><select class="di selecti fs12"><option>Google</option></select>
             </div>
-            <div class="dib" ng-click="toggleSettings=!!!toggleSettings;" style="cursor: pointer;">
+            <div class="di">
+                <label style="margin-top:14px;"> &nbsp; &nbsp; Geotargeting &nbsp;</label><select class="di selecti fs12"><option>United States (.com)</option></select> &nbsp; 
+            </div>
+            
+            <div class="dib pull-right">
+                <button style="background: rgb(41,41,41); color:#fff; padding: .8rem .8rem !important; width:100px;" ng-click="search=search1" class="btn btn-default btn-lg">
+                    <i class="fa fa-search"></i> Search</button>
+            </div>
+            <div class="dib pull-right" ng-click="toggleSettings=!!!toggleSettings;" style="cursor: pointer;">
                 <span>
                     <img class="di" style="padding:5px;" ng-src="{{toggleSettings?'../../../../assets/images/Uppng.png':'../../../../assets/images/Downpng.png'}}"
                     />
                 </span>
                 <label class="dib" style="cursor: pointer; width:80px;top: 7px; position: relative;">Advanced Settings</label>
-            </div>
-            <div class="dib">
-                <button style="background: rgb(41,41,41); color:#fff; padding: .8rem 1.5rem !important; width:105px;" ng-click="search=search1" class="btn btn-default btn-lg">
-                    <i class="fa fa-search"></i>Search</button>
             </div>
         </div>
     </div>
@@ -77,25 +80,25 @@
     <br/>
     <br/>
 
-    <div class="filter_wrap">
+    <div class="filter_wrap" style="border-radius:8px;">
         <div>
-            <label class="di" style="margin:6px;font-size:1rem;">Search Results</label>
-            <div class="di" ng-show="totalCount>pageSize" style="line-height: 45px; padding-left:15px; opacity: .5">Viewing {{pageSize}}
-                entries <span>show </span><select><option>All</option></select>
+            <label class="di fw500" style="margin:6px;font-size:1rem;letter-spacing:.5px;">Search Results</label>
+            <div class="di" ng-show="totalCount>pageSize" style="line-height: 45px; padding-left:15px; font-size: 14px;color: #888;">Viewing {{pageSize}}
+                entries <span>show </span><select style="height: 31px; width: 57px; color: #666; border-radius: 3px; padding: 5px;"><option>All</option></select>
             </div>
             <div class="pull-right">
-                <button class="btn btn-success">Add to List</button>
-                <button class="btn btn-info">Get Keywords</button>
-                <button class="btn btn-warning">Export</button>
+                <button class="btn btn-success btn-table-suc" style="">Add to List</button>
+                <button class="btn btn-info btn-table-inf" style="">Get Keywords</button>
+                <button class="btn btn-warning btn-table-war" style="">Export</button>
             </div>
-            <div class="table-responsive">
+            <div class="table-responsive" style="padding:8px;">
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
-                        <th width=50>
+                        <th width=39>
                             <input type="checkbox" class="filled-in" id="app_" ng-model="keepmesign" ng-change="">
                             <label class="checkbox_editable" for="app_" style="font-weight: normal !important; font-size: 14px !important;"></label>
                         </th>
-                        <th width=50>#</th>
+                        <th width=39 style="padding:15px;">#</th>
                         <th width=250>Keywords</th>
                         <th>Actions</th>
                     </thead>
@@ -128,7 +131,7 @@
                     </tbody>
                 </table>
                 <div class="pag-footer" ng-show="search==''||search==undefined">
-                    <div>Show</div><select><option>All</option></select>
+                    <div class="di">Show </div><select class="di"><option>All</option></select>
                     <dir-pagination-controls class="par_pagination" boundary-links="true" on-page-change="getAllKeywords()" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
                 </div>
             </div>

@@ -173,7 +173,7 @@ smartAdRoll.directive('typeaheadShowOnFocus', function () {
 
 smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.html5Mode({
-        enabled: true,
+        enabled: false,
         requireBase: true
     });
     //.hashPrefix('!');
@@ -192,7 +192,7 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
     //     });
     // });
     $urlRouterProvider.otherwise("/login");
-    $urlRouterProvider.when("", "/dashboard");
+    $urlRouterProvider.when("", "/login");
     $stateProvider.state('main', {
         url: '',
         views: {
@@ -267,7 +267,7 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
         controller: 'keywordSearchCtrl'
     })
     .state('main.channelSearch', {
-        url: '/toolsuite/keyword-search',
+        url: '/toolsuite/channel-search',
         templateUrl: 'partials/toolsuite/channelsearch.html',
         controller: 'keywordSearchCtrl'
     })

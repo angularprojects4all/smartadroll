@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default header-nav-custom  no-mar" ng-init="init();plclick=$state.current.url.indexOf('placement-search')>=0" ng-show="$root.getShowstatus();" style="position: fixed;width: 100%; top: 0px;">
+<nav class="navbar navbar-default header-nav-custom  no-mar" ng-init="init();plclick=getActiveStatus();" ng-show="$root.getShowstatus();" style="position: fixed;width: 100%; top: 0px;">
 	<div class="container-fluid" ng-class="" style="width:100%;">
 		<div class="content_inner fx_tp_header">
 			<div class="navbar-header">
@@ -35,11 +35,11 @@
 							<img ng-src="{{navImages[3]}}" style="height: auto;" class="img-responsive" />
 						</i>Support </a>
 				</li>
-				<li>
+				<li style="border-left: 1px solid #eee; border-right: 1px solid #eee;">
 					<a style="">
 						<i>
 							<img ng-src="{{navImages[4]}}" style="height: auto;" class="img-responsive" />
-						</i>My Account</a>
+						</i> My Account </a>
 				</li>
 				<li ng-click="$root.logout();">
 					<a style="">
@@ -53,7 +53,7 @@
 </nav>
 
 <div class="second_nav" id="side_nav" ng-show="$root.userLoginStatus==true|| $state.current.name!='main.login'"
-ng-class="$root.collapse ? 'pullback':''" style="border-right:1px solid #fff; box-shadow:  -6px 1px 50px rgba(0,0,0,.15);">
+ng-class="$root.collapse ? 'pullback':''" style=" box-shadow:  -6px 1px 50px rgba(0,0,0,.15); transition: .2s ease-out">
 	<div class="mega_menu_sc">
 		<ul>
 			<li class="title main_ntitle">
@@ -68,20 +68,20 @@ ng-class="$root.collapse ? 'pullback':''" style="border-right:1px solid #fff; bo
 				<span ng-bind="$root.getSideNavSubHeading();" style="position: relative; top: -22px; left: 19%;"></span>
 			</li>
 
-			<a ui-sref="main.keywordSearch" ui-sref-active="active" ng-click="plclick=false;"><li style="border-bottom: 1px solid #bbb; background: #fff; cursor: pointer; padding: 17px 23px; margin:0px;" class="title main_ntitle"
+			<a ui-sref="main.keywordSearch" ui-sref-active="active" ng-click="plclick=false;"><li class="sd_nav_left title main_ntitle"
 			 placeholder="showMainModule('mar')"> Keyword Search</li></a>
 
-			<li style="border-bottom: 1px solid #bbb; background: #fff; cursor: pointer; padding: 17px 23px; margin:0px;" class="title main_ntitle"
+			<li class="sd_nav_left title main_ntitle"
 			 placeholder="showMainModule('mar')" ng-click="plclick=!!!plclick"> Placement Search
 				<i>
-					<img ng-if="plclick" src="../assets/images/Uppng.png" style="padding:5px;" />
+					<img ng-if="plclick" src="../assets/images/Uppng.png" style="padding:5px;" class="pull-right"/>
 				</i>
 				<i>
-					<img ng-if="!plclick" src="../assets/images/Downpng.png" style="padding:5px;" />
+					<img ng-if="!plclick" src="../assets/images/Downpng.png" style="padding:5px;"  class="pull-right"/>
 				</i></li>
 				<div></div>
 				<a ui-sref="main.placementSearchbyvideo" ui-sref-active="active">
-					<p ng-style="{'display':plclick?'block':'none'}" style="padding: 10px 27px;" class="dr_tit dropdown-btn" placeholder="showMainModule('mar_sub')"
+					<p ng-style="{'display':plclick?'block':'none'}" style="padding: 10px 27px; border-bottom: 1px solid rgba(0,0,0,.05);;" class="dr_tit dropdown-btn" placeholder="showMainModule('mar_sub')"
 					 ng-class="showActive('mar_sub') ? 'tab cc' : ''">
 						<span>
 							<img src="../assets/images/videopng.png" />
@@ -90,7 +90,7 @@ ng-class="$root.collapse ? 'pullback':''" style="border-right:1px solid #fff; bo
 					</p>
 				</a>
 				<a ui-sref="main.placementSearchbyChannel" ui-sref-active="active">
-					<p ng-style="{'display':plclick?'block':'none'}" style="padding: 10px 27px" class="dr_tit dropdown-btn" placeholder="showMainModule('mar_sub')"
+					<p ng-style="{'display':plclick?'block':'none'}" style="padding: 10px 27px; border-bottom: 1px solid rgba(0,0,0,.05);" class="dr_tit dropdown-btn" placeholder="showMainModule('mar_sub')"
 					 ng-class="showActive('mar_sub') ? 'tab cc' : ''">
 						<span>
 							<img src="../assets/images/channelpng.png" />
@@ -99,7 +99,7 @@ ng-class="$root.collapse ? 'pullback':''" style="border-right:1px solid #fff; bo
 					</p>
 				</a>
 				<a ui-sref="main.placementSearchbyKeyword" ui-sref-active="active">
-					<p ng-style="{'display':plclick?'block':'none'}" style="padding: 10px 27px" class="dr_tit dropdown-btn" placeholder="showMainModule('mar_sub')"
+					<p ng-style="{'display':plclick?'block':'none'}" style="padding: 10px 27px; border-bottom: 1px solid rgba(0,0,0,.05);" class="dr_tit dropdown-btn" placeholder="showMainModule('mar_sub')"
 					 ng-class="showActive('mar_sub') ? 'tab cc' : ''">
 						<span>
 							<img src="../assets/images/Keywordpng.png" />
@@ -108,7 +108,7 @@ ng-class="$root.collapse ? 'pullback':''" style="border-right:1px solid #fff; bo
 					</p>
 				</a>
 				<a ui-sref="main.channelSearch" ui-sref-active="active">
-					<p ng-style="{'display':plclick?'block':'none'}" style="padding: 10px 27px" class="dr_tit dropdown-btn" placeholder="showMainModule('mar_sub')"
+					<p ng-style="{'display':plclick?'block':'none'}" style="margin:0; padding: 10px 27px; border-bottom: 1px solid rgba(0,0,0,.05);" class="dr_tit dropdown-btn" placeholder="showMainModule('mar_sub')"
 					 ng-class="showActive('mar_sub') ? 'tab cc' : ''">
 						<span>
 							<img src="../assets/images/Channel Searchpng.png" />
@@ -117,16 +117,16 @@ ng-class="$root.collapse ? 'pullback':''" style="border-right:1px solid #fff; bo
 					</p>
 				</a>
 			</li>
-			<a href="/toolsuite/keyword-lists"><li style="border-bottom: 1px solid #bbb; background: #fff; cursor: pointer; padding: 17px 23px; margin:0px;" class="title main_ntitle"
+			<a href="/toolsuite/keyword-lists"><li class="sd_nav_left title main_ntitle"
 			 placeholder="showMainModule('mar')"> Keyoword Lists</li>
 			 </a>
-			<a href="/toolsuite/placement-lists"><li style="border-bottom: 1px solid #bbb; background: #fff; cursor: pointer; padding: 17px 23px; margin:0px;" class="title main_ntitle"
+			<a href="/toolsuite/placement-lists"><li class="sd_nav_left title main_ntitle"
 			 placeholder="showMainModule('mar')"> Placement Lists</li></a>
 		</ul>
 	</div>
 	<div>
-		<img src="../assets/images/Leftclosepng.png" class="collapser leftin" ng-class="$root.collapse?'rotate180 ':''" ng-style="{'left' : $root.collapse ? '0px' : '269px'}"
-		 ng-click="$root.collapse=!!!$root.collapse;" />
+		<img src="../assets/images/Leftclosepng.png" class="collapser leftin" ng-class="$root.collapse?'rotate180 ':''" ng-style="{'left' : $root.collapse ? '0px' : '244px'}"
+		 ng-click="$root.collapse=!!!$root.collapse;"/>
 	</div>
 </div>
 

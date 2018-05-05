@@ -7,7 +7,7 @@ const ENV = 'dev';
 const LOGO_URL = './assets/images/Logopng.png';
 const NAV_BTN_BG_IMG = './assets/images/nav_btn_bg.png'
 const NAV_BTN_BG_IMG_ACTIVE = './assets/images/nav_btn_bg_active.png';
-const LOGIN_BG = './assets/images/login_copy.png';
+const LOGIN_BG = './assets/images/login1.jpg';
 
 var navImages = [
     './assets/images/gearpng.png', './assets/images/training_1png.png',
