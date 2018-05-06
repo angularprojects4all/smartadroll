@@ -274,12 +274,12 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
     .state('main.keywordLists', {
         url: '/toolsuite/keyword-lists',
         templateUrl: 'partials/toolsuite/keywordlists.html',
-        controller: 'keywordSearchCtrl'
+        controller: 'keywordListCtrl'
     })
     .state('main.placementLists', {
         url: '/toolsuite/placement-lists',
         templateUrl: 'partials/toolsuite/placementlists.html',
-        controller: 'keywordSearchCtrl'
+        controller: 'keywordListCtrl'
     })
     // .state('main.toolsuitesub', {
     //     url: '/toolsuite/:criteria',

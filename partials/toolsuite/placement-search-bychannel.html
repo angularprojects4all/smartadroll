@@ -2,14 +2,15 @@
         <div class="row filter_wrap">
             <div class="col-md-6 col-sm-12">
                 <div class="filter_wrap_left di">
-                    <span class="di w200" style="font-weight: 600">Placement Search</span>
-                    <h5 class="di w120" style="font-weight: 400">By Channel</h5>
+                    <span class="di w200 fw500" style="letter-spacing: 0.25px">Placement Search</span>
+                    <span>By Video</span>
+                    <!-- <h5 class="di w120" style="font-weight: 400">By Video</h5> -->
                 </div>
                 <div class="w200 di search_wrp">
-                    <input type="text" class="form-control di sea" placeholder="Enter the Video Url/ID Here.." />
+                    <input type="text" class="form-control di sea" placeholder="Enter the Video Url/ID Here.." ng-model="search1" />
                 </div>
             </div>
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-6 col-sm-12" style="padding-left:0px !important;">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
                     <label style="margin-top:14px;">Max Results</label>
@@ -17,16 +18,17 @@
                         <option>50</option>
                     </select>
                 </div>
-                <div class="col-md-3" ng-click="toggleSettings=!!!toggleSettings;" style="cursor: pointer;">
+                
+                <div class="dib pull-right">
+                    <button ng-click="search=search1" class="btn-lg btn-filter-search">
+                        <i class="fa fa-search"></i> Search</button>
+                </div>
+                <div class="dib pull-right" ng-click="toggleSettings=!!!toggleSettings;" style="cursor: pointer;">
                     <span>
                         <img class="di" style="padding:5px;" ng-src="{{toggleSettings?'../../../../assets/images/Uppng.png':'../../../../assets/images/Downpng.png'}}"
                         />
                     </span>
-                    <label class="di" style="cursor: pointer;">Advanced&nbsp; &nbsp; &nbsp; &nbsp;Settings</label>
-                </div>
-                <div class="col-md-3">
-                    <button style="background: rgb(41,41,41); color:#fff; padding: .8rem 1.5rem !important;" class="btn btn-default btn-lg">
-                        <i class="fa fa-search"></i>Search</button>
+                    <label class="dib" style="cursor: pointer; width:80px;top: 7px; position: relative;">Advanced Settings</label>
                 </div>
             </div>
         </div>
@@ -79,28 +81,26 @@
         </div>
         <br/>
         <br/>
-        <div class="filter_wrap">
+    
+        <div class="filter_wrap" style="border-radius:8px;">
             <div>
-                <label class="di" style="margin:6px;">Search Results</label>
-                <div class="di" ng-show="totalCount>pageSize" style="line-height: 45px; padding-left:15px;">Viewing {{pageSize}} entries
-                    <span>show </span>
-                    <select>
-                        <option>All</option>
-                    </select>
+                <label class="di fw500" style="margin:6px;font-size:1rem;letter-spacing:.5px;">Search Results</label>
+                <div class="di" ng-show="totalCount>pageSize" style="line-height: 45px; padding-left:15px; font-size: 14px;color: #888;">Viewing {{pageSize}}
+                    entries <span>show </span><select style="height: 31px; width: 57px; color: #666; border-radius: 3px; padding: 5px;"><option>All</option></select>
                 </div>
                 <div class="pull-right">
-                    <button class="btn btn-success">Add to List</button>
-                    <button class="btn btn-info">Get Keywords</button>
-                    <button class="btn btn-warning">Export</button>
+                    <button class="btn btn-success btn-table-suc" style="">Add to List</button>
+                    <button class="btn btn-info btn-table-inf" style="">Get Keywords</button>
+                    <button class="btn btn-warning btn-table-war" style="">Export</button>
                 </div>
-                <div class="table-responsive">
-                    <table class="table  table-striped table-hovered table-bordered">
+                <div class="table-responsive" style="padding:8px;">
+                    <table class="table table-striped table-hover table-bordered">
                         <thead>
-                            <th>
-                                    <input type="checkbox" class="filled-in" id="app_" ng-model="keepmesign" ng-change="">
-                                    <label class="checkbox_editable" for="app_" style="font-weight: normal !important; font-size: 14px !important;"></label>
-                                </th>
-                            <th>#</th>
+                            <th width=39>
+                                <input type="checkbox" class="filled-in" id="app_" ng-model="keepmesign" ng-change="">
+                                <label class="checkbox_editable" for="app_" style="font-weight: normal !important; font-size: 14px !important;"></label>
+                            </th>
+                            <th width=39 style="padding:15px;">#</th>
                             <th>Video</th>
                             <th>Title</th>
                             <th>Views</th>
@@ -117,7 +117,7 @@
                                 </td>
                                 <td>1</td>
                                 <td>
-                                    <img src="https://www.foxsports.com.au/pmd/images/2017/11/12/652014_640x360_large_20171112101243.jpg" width="120" height="80" />
+                                        <img src="https://www.foxsports.com.au/pmd/images/2017/11/12/652014_640x360_large_20171112101243.jpg" width="120" height="80" />
                                 </td>
                                 <td>Hand painted Sillhoutte Nail art - Full look hair dresser Design art part 2
                                     <br/>

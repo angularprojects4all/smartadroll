@@ -1310,7 +1310,7 @@ button[disabled] {cursor: not-allowed; opacity: 0.6;}
 .more_open a{ display:block; padding:2px 10px;}
 .dropdown:hover .more_open li:hover{ background: none;}
 .second_nav ul li a{ color:#b5b5b5; font-size:14px;}
-.main_ntitle{ margin-top:20px; font-size:13px; font-weight: bold;}
+.main_ntitle{ margin-top:14px; font-size:13px; font-weight: bold;}
 .second_nav ul li.main_ntitle{ padding-left:15px; color:#717171;}
 /* .second_nav ul li a:hover{color:#fff;} */
 a.active p.dr_tit.dropdown-btn, .mega_menu_sc ul a.active li{ border-right:4px solid rgb(223,23,33);}
@@ -1757,4 +1757,41 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0dddd', end
 .btn-table-war {
     background: #ffae2e !important;
     box-shadow:none !important;
+}
+.btn-filter-search {
+    background: rgb(41,41,41); color:#fff; padding: .8rem .8rem !important; width:100px;
+    font-size: .9rem; font-weight:500;
+}
+.btn-filter-search :hover {
+    background: rgba(41,41,41,1) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+.btn-get-keywords {
+    color: #fff; padding: 12px;
+    box-shadow: none;
+    border-radius: 6px;
+    border:none;
+    background: rgb(65,139,201);
+}
+.btn-add-video {
+    color: #fff; padding: 12px;
+    box-shadow: none;
+    border-radius: 6px;
+    border:none;
+    background: rgb(26,171,219);
+}
+.btn-rename {
+    color: #fff; padding: 12px;
+    box-shadow: none;
+    border-radius: 6px;
+    border:none;
+    background: rgb(148,139,202);
+}
+.btn-delete {
+    color: #fff; padding: 12px;
+    box-shadow: none;
+    border-radius: 6px;
+    border:none;
+    background: rgb(226,104,105);
 }

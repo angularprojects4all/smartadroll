@@ -32,6 +32,6 @@ smartAdRoll.controller('mainCtrl', function ($rootScope, $scope, $state, $locati
     };
 
     $scope.getActiveStatus = function () {
-        return $state.current.url.indexOf('placement-search')>=0;
+        return $state.current.url.indexOf('placement-search')>=0 || $state.current.url.indexOf('channel-search')>=0;
     }
 });

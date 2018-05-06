@@ -1,0 +1,42 @@
+<div ng-class="$root.collapse?'pullin':'pushout'" ng-init="init();">  
+        <div class="filter_wrap" style="border-radius:8px;">
+                <div style="display: block; position: relative; top:10px;">
+                        <label class="di fw500" style="margin:12px;font-size:1.26rem;letter-spacing:.5px;">Keyword Lists</label>
+                        <div class="di" style="margin-left:25px; font-size: 14px; color:#666;">Viewing {{keywordLists.length}} results show </div><select style="border-radius:3px;padding:3px;margin-left:8px;"><option>All</option></select>
+                        <div class="pull-right">
+                            <button class="btn btn-success btn-table-suc" style="">Add to List</button>
+                            <button class="btn btn-info btn-table-inf" style="">Get Keywords</button>
+                            <button class="btn btn-warning btn-table-war" style="">Export</button>
+                        </div>
+                        </div>
+                        <br/>
+                <div class="table-responsive" style="padding:8px;" style="display: block;">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <th>Created</th>
+                            <th>Updated</th>
+                            <th>List Name</th>
+                            <th>Videos</th>
+                            <th>Actions</th>
+    
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="keyowrdList in keywordLists">
+                                <td>{{keyowrdList.created}}</td>
+                                <td>{{keyowrdList.updated}}</td>
+                                <td>{{keyowrdList.listName}}</td>
+                                <td>{{keyowrdList.videos}}</td>
+                                <td>
+                                    <button class="btn-get-keywords">Get Keywords</button>
+                                    <button class="btn-add-video">Add Video</button>
+                                    <button class="btn-rename">Rename</button>
+                                    <button class="btn-delete">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="foot" style="margin:25px;"><label> Show </label><select style="margin-left:10px; padding:5px;border-radius:4px;"><option>All</option></select></div>
+        </div>
+    </div>

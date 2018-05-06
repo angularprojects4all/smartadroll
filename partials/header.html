@@ -117,10 +117,10 @@ ng-class="$root.collapse ? 'pullback':''" style=" box-shadow:  -6px 1px 50px rgb
 					</p>
 				</a>
 			</li>
-			<a href="/toolsuite/keyword-lists"><li class="sd_nav_left title main_ntitle"
-			 placeholder="showMainModule('mar')"> Keyoword Lists</li>
+			<a ui-sref="main.keywordLists" ui-sref-active="active" ng-click="plclick=false;"><li class="sd_nav_left title main_ntitle"
+			 placeholder="showMainModule('mar')"> Keyword Lists</li>
 			 </a>
-			<a href="/toolsuite/placement-lists"><li class="sd_nav_left title main_ntitle"
+			<a ui-sref="main.placementLists" ui-sref-active="active" ng-click="plclick=false;"><li class="sd_nav_left title main_ntitle"
 			 placeholder="showMainModule('mar')"> Placement Lists</li></a>
 		</ul>
 	</div>
