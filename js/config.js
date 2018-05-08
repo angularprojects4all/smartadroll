@@ -17,3 +17,9 @@ var navImages = [
 
 var LOGIN_BTN_TEXT = 'Login';
 var REGISTER_BTN_TEXT = 'SUBMIT';
+
+
+
+//Dev
+const API_PREFIX = "http://127.0.0.1:8887";
+const API_SUFFIX = ".json";

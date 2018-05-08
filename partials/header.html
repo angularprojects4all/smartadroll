@@ -9,7 +9,7 @@
 					<span class="icon-bar"></span>
 				</button>
 			</div>
-			<img src="{{logoUrl}}" class="pull-left img-responsive" width="200" style="margin:8px;" />
+			<img src="{{logoUrl}}" class="pull-left img-responsive" width="200" style="margin: 5px 11.5px;" />
 			<ul class="nav-menu pull-right unhide" ng-show="$root.userLoginStatus==true || $state.current.name!='main.login'" id="main_nav">
 				<li ng-class="$state.current.url.indexOf('toolsuite')>=0 ? 'active':''">
 					<a style="">
@@ -63,9 +63,9 @@ ng-class="$root.collapse ? 'pullback':''" style=" box-shadow:  -6px 1px 50px rgb
 			</li>
 			<li class="title main_ntitle" placeholder="showMainModule('so')">
 				<img ng-src="{{$root.sideNavActImg}}" />
-				<span style="display: inline; position: relative; font-weight: 800; color: #000; font-size: 34px;
-				top: 9px; line-height: 100px;" ng-bind="$root.sideNavHeading"></span><br/>
-				<span ng-bind="$root.getSideNavSubHeading();" style="position: relative; top: -22px; left: 19%;"></span>
+				<span style="display: inline; position: relative; font-weight: 800; color: #000; font-size: 31.69px;
+				top: -2%; line-height: 100px;" ng-bind="$root.sideNavHeading"></span><br/>
+				<span ng-bind="$root.getSideNavSubHeading();" style="position: relative; top: -29px; left: 20%; font-size:14px;"></span>
 			</li>
 
 			<a ui-sref="main.keywordSearch" ui-sref-active="active" ng-click="plclick=false;"><li class="sd_nav_left title main_ntitle"
