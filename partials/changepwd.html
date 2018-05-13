@@ -1,0 +1,27 @@
+<style>
+        label {
+          margin-top:10px;
+        }
+      </style>
+      <div ng-class="$root.collapse?'pullin':'pushout'" ng-init="init();">
+          <div class="row filter_wrap">
+            <div class="basic-info" >
+              <h4>Change Password here</h4><br/>
+              <div class="col-md-11 col-sm-11 col-xs-11">
+                <label>Current Password:</label>
+                <input type="password" ng-model="user.oldpwd" placeholder="Enter Old Password here" class="form-control" style="border:1px solid #ccc; border-radius: 4px; font-size: 14px;"/>
+              </div>
+              <div class="col-md-11 col-sm-11 col-xs-11">
+                  <label>Your New Password: </label>
+                  <input type="password" ng-model="user.newpwd" placeholder="Enter New Password here" class="form-control" style="border:1px solid #ccc; border-radius: 4px; font-size: 14px;"/>
+              </div>
+              <div class="col-md-11 col-sm-11 col-xs-11">
+                    <label>Confirm New Password: </label>
+                    <input type="password" ng-model="user.confirmpwd" placeholder="Conform new password" class="form-control" style="border:1px solid #ccc; border-radius: 4px; font-size: 14px; margin-bottom: 25px !important;"/>
+                </div>
+            </div>
+            <div class="basic-info" style="text-align:center">
+              <button type="submit" class="btn btn-info">Update Information</button>
+            </div>
+          </div>
+      </div>

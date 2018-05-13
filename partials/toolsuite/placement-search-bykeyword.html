@@ -83,17 +83,30 @@
         <br/>
     
         <div class="filter_wrap" style="border-radius:8px;">
-            <div>
-                <label class="di fw500" style="margin:6px;font-size:1rem;letter-spacing:.5px;">Search Results</label>
-                <div class="di" ng-show="totalCount>pageSize" style="line-height: 45px; padding-left:15px; font-size: 14px;color: #888;">Viewing {{pageSize}}
-                    entries <span>show </span><select style="height: 31px; width: 57px; color: #666; border-radius: 3px; padding: 5px;"><option>All</option></select>
-                </div>
-                <div class="pull-right">
-                    <button class="btn btn-success btn-table-suc" style="">Add to List</button>
-                    <button class="btn btn-info btn-table-inf" style="">Get Keywords</button>
-                    <button class="btn btn-warning btn-table-war" style="">Export</button>
-                </div>
-                <div class="table-responsive" style="padding:8px;">
+                <div style="margin:8px 5px;">
+                    <label class="di fw500" style="margin:6px;font-size:1rem;letter-spacing:.5px;">Search Results</label>
+                    <div class="di" ng-show="totalCount>pageSize" style="line-height: 45px; padding-left:15px; font-size: 14px;color: #888;">Viewing {{pageSize}} entries
+                        <span>show </span>
+                        <select style="height: 31px; width: 57px; color: #666; border-radius: 3px; padding: 5px;">
+                            <option>All</option>
+                        </select>
+                    </div>
+                    <div class="pull-right" style="padding-right: 7px;">
+                        <button class="btn btn-success btn-table-suc" data-toggle="modal" data-target="#addToList">
+                            <span>
+                                <img src="../../assets/images/check.png" />
+                            </span> Add to List</button>
+                        <button class="btn btn-info btn-table-inf" data-toggle="modal" data-target="#getKeywordsModal">
+                            <span>
+                                <img src="../../assets/images/link.png" />
+                            </span> Get Keywords</button>
+                        <button class="btn btn-warning btn-table-war" ng-click="$root.exportTable('pl_search_by_video','csv','keyword-search');">
+                            <span>
+                                <img src="../../assets/images/download.png" />
+                            </span> Export</button>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="table-responsive" style="padding:8px;">
                     <table class="table table-striped table-hover table-bordered">
                         <thead>
                             <th width=39>
@@ -104,9 +117,9 @@
                             <th>Video</th>
                             <th>Title</th>
                             <th>Views</th>
-                            <th>Like</th>
-                            <th>Dislike</th>
-                            <th>Comments</th>
+                            <th><img style="width:21px;opacity:.75" src="../../assets/images/Thumbsup.png"></th>
+                            <th><img style="width:21px;opacity:.75" src="../../assets/images/Thumbsdown.png"></th>
+                            <th><img style="width:21px;opacity:.75" src="../../assets/images/Comments.png"></th>
                             <th>Published Date</th>
     
                         </thead>
@@ -117,12 +130,14 @@
                                 </td>
                                 <td>1</td>
                                 <td>
-                                    <img src="https://macphunsoftware.cachefly.net/upload/auroraLandings/shutterstock_3271226601x.jpg" width="120" height="80" />
+                                    <img src="https://macphunsoftware.cachefly.net/upload/auroraLandings/shutterstock_3271226601x.jpg"  width="80" height="50"/>
                                 </td>
-                                <td>Hand painted Sillhoutte Nail art - Full look hair dresser Design art part 2
+                                <td><span ng-bind="'nazriya at rajarani movie part -1 | raja rani video songs'"></span>
                                     <br/>
-                                    <a>Null Channel</a>
-                                    <a>Go to Video</a>
+                                    <img src="../../assets/images/Channel.png"/> <a ng-href="{{vid.channelUrl}}" target="_blank"> {{'Telugu entertainment'}} </a> &nbsp; &nbsp;
+                                    <img src="../../assets/images/Video.png"/> <a ng-href="{{vid.videoUrl}}" target="_blank"> Go to Video</a> &nbsp;
+                                    <img src="../../assets/images/Desc.png"/> &nbsp;
+                                    <img src="../../assets/images/MonetizedOn.png"/>
                                 </td>
                                 <td>580</td>
                                 <td>580</td>

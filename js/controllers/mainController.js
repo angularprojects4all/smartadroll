@@ -1,4 +1,4 @@
-smartAdRoll.controller('mainCtrl', function ($rootScope, $scope, $state, $location, StorageService) {
+smartAdRoll.controller('mainCtrl', function ($rootScope, $scope, $state, $location, StorageService, exportService) {
     $rootScope.$state = $state;
     $scope.logoUrl = LOGO_URL;
     $scope.NAV_BTN_BG_IMG = NAV_BTN_BG_IMG;
@@ -10,9 +10,16 @@ smartAdRoll.controller('mainCtrl', function ($rootScope, $scope, $state, $locati
     $scope.navImages = [];
     $scope.navImages = navImages;
 
-    $rootScope.sideNavHeading = "Tool Suite";
-    $rootScope.sideNavActImg = "./assets/images/toolsuite.png";
-    $rootScope.sideNavSubHeading = "Placement Search";
+    if($state.current.url.indexOf('toolsuite')>=0) {
+        $rootScope.sideNavHeading = "Tool Suite";
+        $rootScope.sideNavActImg = "./assets/images/gearpng.png";
+        $rootScope.sideNavSubHeading = "Placement Search";
+    }
+    else if($state.current.name.indexOf('profile')>=0) {
+        $rootScope.sideNavHeading = "My Account";
+        $rootScope.sideNavActImg = "./assets/images/myaccountpng.png";
+        $rootScope.sideNavSubHeading = "Account";
+    }
 
     $rootScope.collapse = false;
     $rootScope.logout = function () {
@@ -33,5 +40,10 @@ smartAdRoll.controller('mainCtrl', function ($rootScope, $scope, $state, $locati
 
     $scope.getActiveStatus = function () {
         return $state.current.url.indexOf('placement-search')>=0 || $state.current.url.indexOf('channel-search')>=0;
-    }
+    };
+
+    $rootScope.exportTable = function (tableId, exportExtension, fileName) {
+        var excludeColumns = true;
+        exportService.export(tableId, exportExtension, fileName, excludeColumns);
+    };
 });

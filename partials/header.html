@@ -12,7 +12,7 @@
 			<img src="{{logoUrl}}" class="pull-left img-responsive" width="200" style="margin: 5px 11.5px;" />
 			<ul class="nav-menu pull-right unhide" ng-show="$root.userLoginStatus==true || $state.current.name!='main.login'" id="main_nav">
 				<li ng-class="$state.current.url.indexOf('toolsuite')>=0 ? 'active':''">
-					<a style="">
+					<a href="#/toolsuite/keyword-search">
 						<i>
 							<img ng-src="{{navImages[0]}}" style="height: auto;" class="img-responsive" />
 						</i>Tool Suite</a>
@@ -30,13 +30,14 @@
 						</i>Feedback</a>
 				</li>
 				<li>
-					<a style="">
+						<a style="">
 						<i>
 							<img ng-src="{{navImages[3]}}" style="height: auto;" class="img-responsive" />
 						</i>Support </a>
 				</li>
-				<li style="border-left: 1px solid #eee; border-right: 1px solid #eee;">
-					<a style="">
+				
+				<li style="border-left: 1px solid #eee; border-right: 1px solid #eee;" ng-class="$state.current.url.indexOf('profile')>=0 || $state.current.url.indexOf('billing')>=0 || $state.current.name.indexOf('changePassword')>=0 || $state.current.name.indexOf('usermgmt')>=0 || $state.current.url.indexOf('notifications')>=0? 'active' : ''">
+						<a ui-sref="main.profile">
 						<i>
 							<img ng-src="{{navImages[4]}}" style="height: auto;" class="img-responsive" />
 						</i> My Account </a>
@@ -51,7 +52,7 @@
 		</div>
 	</div>
 </nav>
-
+<div class="campaign_badge" ng-show="badgeshow!=false && $state.current.name!='main.login'">Try our new plan with discounted price <a class="btn btn-info" href="#/order-form" ng-click="badgeshow=false;"> Buy Now </a> <span class="pull-right" style="margin-top:4px; padding:3px; cursor: pointer;" ng-click="badgeshow=false">x</span></div>
 <div class="second_nav" id="side_nav" ng-show="$root.userLoginStatus==true|| $state.current.name!='main.login'"
 ng-class="$root.collapse ? 'pullback':''" style=" box-shadow:  -6px 1px 50px rgba(0,0,0,.15); transition: .2s ease-out">
 	<div class="mega_menu_sc">
@@ -62,12 +63,15 @@ ng-class="$root.collapse ? 'pullback':''" style=" box-shadow:  -6px 1px 50px rgb
 				</a>
 			</li>
 			<li class="title main_ntitle" placeholder="showMainModule('so')">
-				<img ng-src="{{$root.sideNavActImg}}" />
+				<div class="sidenav-act-img-wrapper">
+					<img ng-src="{{$root.sideNavActImg}}" style="position: relative; top: -2px; left: 0px; right:0px; width: 21px; height: 20px;"/>
+				</div>
 				<span style="display: inline; position: relative; font-weight: 800; color: #000; font-size: 31.69px;
 				top: -2%; line-height: 100px;" ng-bind="$root.sideNavHeading"></span><br/>
 				<span ng-bind="$root.getSideNavSubHeading();" style="position: relative; top: -29px; left: 20%; font-size:14px;"></span>
 			</li>
 
+			<span ng-if="$state.current.url.indexOf('toolsuite')>=0">
 			<a ui-sref="main.keywordSearch" ui-sref-active="active" ng-click="plclick=false;"><li class="sd_nav_left title main_ntitle"
 			 placeholder="showMainModule('mar')"> Keyword Search</li></a>
 
@@ -122,6 +126,20 @@ ng-class="$root.collapse ? 'pullback':''" style=" box-shadow:  -6px 1px 50px rgb
 			 </a>
 			<a ui-sref="main.placementLists" ui-sref-active="active" ng-click="plclick=false;"><li class="sd_nav_left title main_ntitle"
 			 placeholder="showMainModule('mar')"> Placement Lists</li></a>
+			</span>
+			<span ng-if="$state.current.name.indexOf('profile')>=0||$state.current.name.indexOf('usermgmt')>=0||$state.current.name.indexOf('notifications')>=0||$state.current.name.indexOf('change')>=0||$state.current.name.indexOf('billing')>=0">
+				<a ui-sref="main.profile" ui-sref-active="active" ng-click="plclick=false;"><li class="sd_nav_left title main_ntitle"
+					placeholder="showMainModule('mar')"> Account</li>
+					</a>
+				<a ui-sref="main.billing" ui-sref-active="active" ng-click="plclick=false;"><li class="sd_nav_left title main_ntitle"
+				placeholder="showMainModule('mar')"> Billing</li></a>
+				<a ui-sref="main.notifications" ui-sref-active="active" ng-click="plclick=false;"><li class="sd_nav_left title main_ntitle"
+					placeholder="showMainModule('mar')"> Notifications</li></a>
+				<a ui-sref="main.changePassword" ui-sref-active="active" ng-click="plclick=false;"><li class="sd_nav_left title main_ntitle"
+					placeholder="showMainModule('mar')"> Password</li></a>
+				<a ui-sref="main.usermgmt" ui-sref-active="active" ng-click="plclick=false;"><li class="sd_nav_left title main_ntitle"
+					placeholder="showMainModule('mar')"> User Management</li></a>
+			</span>
 		</ul>
 	</div>
 	<div>

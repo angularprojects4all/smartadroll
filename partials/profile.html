@@ -1,74 +1,114 @@
-<h3>Personal info</h3>
+<style>
+  label {
+    margin-top:10px;
+  }
+  .nav-link {
+    background-color: #ddd;
+  }
+  .nav-link.active, nav-link:hover {
+    background-color: #000 !important;
+  }
+  .nav-tabs>li>a:hover {
+    background-color: #000 !important;
+}
+.nav-tabs {
+  background: transparent;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  background-color: #000 !important;
+  border-radius: 1px !important;
+  color: #fff !important;
+}
+</style>
+<div ng-class="$root.collapse?'pullin':'pushout'" ng-init="init();tab='personal'">
+    <div class="modal-body">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link" ng-class="tab=='personal'?'active':''" data-toggle="tab" ng-click="tab='personal'" role="tab">Personal Details</a>
+          </li><li>
+          </li><li>
+          </li><li class="nav-item">
+            <a class="nav-link" data-toggle="tab" ng-click="tab='contact'" role="tab">Contact Information</a>
+          </li><li>
+          </li><li class="nav-item">
+            <a class="nav-link" data-toggle="tab" role="tab">Working Organization</a>
+          </li><li>
+          </li><li class="nav-item">
+            <a class="nav-link" data-toggle="tab" role="tab">Additional Settings</a>
+          </li><li>
+        </li></ul>
         
-        <form class="form-horizontal" role="form" style="padding:100px;">
-          <div class="form-group">
-            <label class="col-lg-3 control-label">First name:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="Jane">
+        <div class="tab-content mt-2">
+          <div class="tab-pane show"  role="tabpanel" ng-show="tab=='personal'" ng-class="tab=='personal'?'active':''">
+            <div style="height: 250px; background: white; margin-right: 50px;">
+              <div class="col-sm-11 col-xs-11">
+                <label>First Name :</label>
+                <input type="text" ng-model="user.fname" placeholder="First Name" class="form-control" style="border:1px solid #ccc; border-radius: 4px; font-size: 14px;"/>
+              </div>
+              <div class="col-sm-11 col-xs-11">
+                  <label>Last Name :</label>
+                  <input type="text" ng-model="user.lname" placeholder="Last Name" class="form-control" style="border:1px solid #ccc; border-radius: 4px; font-size: 14px;"/>
+              </div>
+              <button class="btn btn-info mt20 ml10">Save My Details</button>
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Last name:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="Bishop">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Company:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="janesemail@gmail.com">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Time Zone:</label>
-            <div class="col-lg-8">
-              <div class="ui-select">
-                <select id="user_time_zone" class="form-control">
-                  <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                  <option value="Alaska">(GMT-09:00) Alaska</option>
-                  <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                  <option value="Arizona">(GMT-07:00) Arizona</option>
-                  <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                  <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                  <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                  <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                </select>
+          <div class="tab-pane show" role="tabpanel" ng-show="tab=='contact'" ng-class="tab=='contact'?'active':''">
+              <div style="height: 250px; background: white; margin-right: 50px;">
+                <div class="col-sm-11 col-xs-11">
+                  <label>Email ID:</label>
+                  <input type="text" ng-model="user.email" placeholder="First Name" class="form-control" style="border:1px solid #ccc; border-radius: 4px; font-size: 14px;"/>
+                </div>
+                <div class="col-sm-11 col-xs-11">
+                    <label>Mobile:</label>
+                    <input type="text" ng-model="user.mobile" placeholder="Last Name" class="form-control" style="border:1px solid #ccc; border-radius: 4px; font-size: 14px;"/>
+                </div>
+                <button class="btn btn-info mt20 ml10">Save</button>
               </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Username:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="text" value="janeuser">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" value="11111122333">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
-              <span></span>
-              <input type="reset" class="btn btn-default" value="Cancel">
-            </div>
-          </div>
-        </form>
+        </div>
       </div>
-  </div>
+    <!-- <div class="row filter_wrap">
+      <div class="basic-info" >
+        <h4>Personal Details</h4><br/>
+        <div class="col-md-offset-1 col-sm-offset-1 col-md-5 col-sm-5 col-xs-11">
+          <label>First Name:</label>
+          <input type="text" ng-model="user.firstName" placeholder="First Name" class="form-control" style="border:1px solid #ccc; border-radius: 4px; font-size: 14px;"/>
+        </div>
+        <div class="col-md-offset-1 col-sm-offset-1 col-md-5 col-sm-5 col-xs-11">
+            <label>Last Name:</label>
+            <input type="text" ng-model="user.lastName" placeholder="Last Name" class="form-control" style="border:1px solid #ccc; border-radius: 4px; font-size: 14px;"/>
+        </div>
+        <br/>
+      </div>
+      <div class="basic-info">
+        <h4 style="margin-top: 100px;">Advanced Information</h4>
+        
+      </div>
+      <div class="basic-info">
+          <h4 style="margin-top: 100px;">Address Information</h4>
+          <div class="col-md-offset-1 col-sm-offset-1 col-md-5 col-sm-5 col-xs-11">
+              <label>Country:</label>
+              <select class="form-control"><option>India</option></select>
+            </div>
+            <div class="col-md-offset-1 col-sm-offset-1 col-md-5 col-sm-5 col-xs-11">
+                <label>State:</label>
+                <select class="form-control"><option>Andhra Pradesh</option></select>
+            </div>
+        </div>
+        <div class="basic-info">
+            <h4 style="margin-top: 100px;">Additional Information</h4>
+            <div class="col-md-offset-1 col-sm-offset-1 col-md-5 col-sm-5 col-xs-11">
+                <label>I am working at:</label>
+                <select class="form-control"><option>Student</option></select>
+              </div>
+              <div class="col-md-offset-1 col-sm-offset-1 col-md-5 col-sm-5 col-xs-11">
+                  <label>About Me:</label>
+                  <textarea class="form-control" rows="3" ng-model="user.aboutme" style="margin-bottom: 25px !important;"></textarea>
+              </div>
+          </div>
+      <div class="" style="text-align:center">
+        <button type="submit" class="btn btn-info" style="margin-bottom: 25px;">Update Information</button>
+        <br/><a ui-sref="main.changePassword">Change Password</a>
+      </div>
+    </div> -->
 </div>

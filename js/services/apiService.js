@@ -182,43 +182,6 @@ smartAdRoll.service('apiService', ['$http', 'cookieService', '$rootScope', funct
         return promiss;
     };
 
-    this.getEvents = function (urlSuffix) {
-        var credentials = cookieService.getCredentials("userCredentials");
-        var promiss = {};
-        promiss = $http({
-            method: 'GET', url: smartAdRollServiceUrl_base + urlSuffix,
-            headers: { 'Content-Type': 'application/json', 'X-User-Id': credentials ? credentials.userId : null, 'X-Auth-Token': credentials ? credentials.xAuthToken : null}
-        }).then(function (response) {
-            return response.data;
-        });
-        return promiss;
-    };
-
-    this.getEventsV2 = function (urlSuffix) {
-        var credentials = cookieService.getCredentials("userCredentials");
-        var promiss = {};
-        promiss = $http({
-            method: 'GET', url: smartAdRollServiceUrl_base + urlSuffix,
-            headers: { 'Content-Type': 'application/json', 'X-User-Id': credentials ? credentials.userId : null, 'X-Auth-Token': credentials ? credentials.xAuthToken : null }
-        }).then(function (response) {
-            return response.data;
-        });
-        return promiss;
-    };
-
-    this.campaignsList = function (filter) {
-        if(angular.isUndefinedOrNull (filter.from) || filter.from=='') {
-            var url = campaignUrl + '/marketing_campaign/list';
-        }
-        else {
-            var url = campaignUrl + "/marketing_campaign/list?startTime="+filter.from+"&endTime="+filter.to;
-        }
-        var promiss = {}
-        promiss = $http({
-            method: 'GET', url: url,
-            headers: {'Content-Type': 'application/json'}
-        }).then(function(response){ return response.data;});
-        return promiss;
-    };
+    
 
 }]);

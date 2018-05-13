@@ -21,7 +21,7 @@
                 $(el).find('thead').find('tr').each(function () {
                     tdData += "\n";
                     $(this).filter(':visible').find('td, th').each(function (index, data) {
-                        if ($(this).css('display') != 'none') {
+                        if ($(this).css('display') != 'none' && $(this).attr('export')!='no') {
                             if (defaults.ignoreColumn.indexOf(index) == -1) {
                                 tdData += '"' + parseString($(this)) + '"' + defaults.separator;
                             }
@@ -34,7 +34,7 @@
                 $(el).find('tbody').find('tr').each(function () {
                     tdData += "\n";
                     $(this).filter(':visible').find('td, th').each(function (index, data) {
-                        if ($(this).css('display') != 'none') {
+                        if ($(this).css('display') != 'none' && $(this).attr('export')!='no') {
                             if (defaults.ignoreColumn.indexOf(index) == -1) {
                                 tdData += '"' + parseString($(this)) + '"' + defaults.separator;
                             }
@@ -174,7 +174,7 @@
                 $(el).find('thead').find('tr').each(function () {
                     excel += "<tr>";
                     $(this).filter(':visible').find('td, th').each(function (index, data) {
-                        if ($(this).css('display') != 'none') {
+                        if ($(this).css('display') != 'none' && $(this).attr('export')!='no') {
                             if (defaults.ignoreColumn.indexOf(index) == -1) {
                                 excel += "<td><b>" + parseString($(this)) + "</b></td>";
                             }
@@ -188,7 +188,7 @@
                     excel += "<tr>";
                     var colCount = 0;
                     $(this).filter(':visible').find('td').each(function (index, data) {
-                        if ($(this).css('display') != 'none') {
+                        if ($(this).css('display') != 'none' && $(this).attr('export')!='no') {
                             if (defaults.ignoreColumn.indexOf(index) == -1) {
                                 if (!isNaN($(this).text().substring(1))) {
                                     excel += "<td  style='mso-number-format:\"#\"'>" + parseString($(this)) + "</td>";
@@ -242,7 +242,7 @@
                 var base64data = "base64," + $.base64.encode(excelFile);
                 switch (defaults.type) {
                     case 'excel':
-                        window.open('data:application/vnd.ms-' + defaults.type + ';' + base64data);
+                        window.open('data:application/vnd.ms-' + defaults.type + ';' + base64data, (defaults.fileName==undefined?'download.doc':defaults.fileName+".doc"));
                         break;
                     case 'powerpoint':
                         window.open('data:application/vnd.ms-' + defaults.type + ';' + base64data);

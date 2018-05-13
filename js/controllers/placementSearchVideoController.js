@@ -1,5 +1,8 @@
-smartAdRoll.controller('placementSearchVideoCtrl', function ($rootScope, $scope, $state, $location, $http) {
+smartAdRoll.controller('placementSearchVideoCtrl', function ($rootScope, $scope, $state, $location, $http, $stateParams, flash) {
+    $scope.flash = flash;
 
+    console.log($stateParams)
+    $scope.search1 = $stateParams.search;
     $scope.init = function () {
         $scope.filter = {
             page: 1,
@@ -14,9 +17,9 @@ smartAdRoll.controller('placementSearchVideoCtrl', function ($rootScope, $scope,
     $scope.searchVideos = function () {
         $scope.currentPage = 1;
         $scope.pageSize = 10;
-        $http.get("/temp/user-response.json").then(function (response) {
-            $scope.results = response.data.data.proAccounts;
-            $scope.totalCount = response.data.data.count;
+        $http.get("/temp/placement-search.json").then(function (response) {
+            $scope.results = response;
+            $scope.totalCount = response.length;
         })
     }
 });

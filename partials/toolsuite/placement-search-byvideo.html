@@ -83,18 +83,31 @@
     <br/>
 
     <div class="filter_wrap" style="border-radius:8px;">
-        <div>
-            <label class="di fw500" style="margin:6px;font-size:1rem;letter-spacing:.5px;">Search Results</label>
-            <div class="di" ng-show="totalCount>pageSize" style="line-height: 45px; padding-left:15px; font-size: 14px;color: #888;">Viewing {{pageSize}}
-                entries <span>show </span><select style="height: 31px; width: 57px; color: #666; border-radius: 3px; padding: 5px;"><option>All</option></select>
-            </div>
-            <div class="pull-right">
-                <button class="btn btn-success btn-table-suc" style="">Add to List</button>
-                <button class="btn btn-info btn-table-inf" style="">Get Keywords</button>
-                <button class="btn btn-warning btn-table-war" style="">Export</button>
-            </div>
-            <div class="table-responsive" style="padding:8px;">
-                <table class="table table-striped table-hover table-bordered">
+            <div style="margin:8px 5px;">
+                <label class="di fw500" style="margin:6px;font-size:1rem;letter-spacing:.5px;">Search Results</label>
+                <div class="di" ng-show="totalCount>pageSize" style="line-height: 45px; padding-left:15px; font-size: 14px;color: #888;">Viewing {{pageSize}} entries
+                    <span>show </span>
+                    <select style="height: 31px; width: 57px; color: #666; border-radius: 3px; padding: 5px;">
+                        <option>All</option>
+                    </select>
+                </div>
+                <div class="pull-right" style="padding-right: 7px;">
+                    <button class="btn btn-success btn-table-suc" data-toggle="modal" data-target="#addToList">
+                        <span>
+                            <img src="../../assets/images/check.png" />
+                        </span> Add to List</button>
+                    <button class="btn btn-info btn-table-inf" data-toggle="modal" data-target="#getKeywordsModal">
+                        <span>
+                            <img src="../../assets/images/link.png" />
+                        </span> Get Keywords</button>
+                    <button class="btn btn-warning btn-table-war" ng-click="$root.exportTable('pl_search_by_video','csv','keyword-search');">
+                        <span>
+                            <img src="../../assets/images/download.png" />
+                        </span> Export</button>
+                </div>
+                <div class="clearfix"></div>
+                <div class="table-responsive" style="padding:8px;">
+                <table class="table table-striped table-hover table-bordered" id="pl_search_by_video">
                     <thead>
                         <th width=39>
                             <input type="checkbox" class="filled-in" id="app_" ng-model="keepmesign" ng-change="">
@@ -104,35 +117,70 @@
                         <th>Video</th>
                         <th>Title</th>
                         <th>Views</th>
-                        <th>Like</th>
-                        <th>Dislike</th>
-                        <th>Comments</th>
+                        <th><img style="width:21px;opacity:.75" src="../../assets/images/Thumbsup.png"></th>
+                        <th><img style="width:21px;opacity:.75" src="../../assets/images/Thumbsdown.png"></th>
+                        <th><img style="width:21px;opacity:.75" src="../../assets/images/Comments.png"></th>
                         <th>Published Date</th>
 
                     </thead>
                     <tbody>
-                        <tr ng-repeat="item in results">
+                        <tr ng-repeat="vid in results.data|filter:search1">
                             <td><input type="checkbox" class="filled-in" id="app_" ng-model="keepmesign" ng-change="">
                                 <label class="checkbox_editable" for="app_" style="font-weight: normal !important; font-size: 14px !important;"></label>
                             </td>
-                            <td>1</td>
+                            <td ng-bind="$index+((currentPage-1)*pageSize) + 1"></td>
                             <td>
-                                <img src="https://gigaom.com/wp-content/uploads/sites/1/2012/01/premiere-league-640x526.jpg" width="120" height="80" />
+                                <img ng-src="{{vid.url}}" width="80" height="50" />
                             </td>
-                            <td>Hand painted Sillhoutte Nail art - Full look hair dresser Design art part 2
+                            <td><span ng-bind="vid.title"></span>
                                 <br/>
-                                <a>Null Channel</a>
-                                <a>Go to Video</a>
+                                <img src="../../assets/images/Channel.png"/> <a ng-href="{{vid.channelUrl}}" target="_blank"> {{vid.channelTitle}} </a> &nbsp; &nbsp;
+                                <img src="../../assets/images/Video.png"/> <a ng-href="{{vid.videoUrl}}" target="_blank"> Go to Video</a> &nbsp;
+                                <img src="../../assets/images/Desc.png"/> &nbsp;
+                                <img src="../../assets/images/MonetizedOn.png"/>
                             </td>
-                            <td>580</td>
-                            <td>580</td>
-                            <td>580</td>
-                            <td>580</td>
-                            <td>January 24, 2018 </td>
+                            <td ng-bind="{{vid.viewCount}}"></td>
+                            <td ng-bind="{{vid.likeCount}}"></td>
+                            <td ng-bind="{{vid.dislikeCount}}"></td>
+                            <td ng-bind="{{vid.commentCount}}"></td>
+                            <td>{{vid.publishedAt.split('-')[0]+'-'+vid.publishedAt.split('-')[1]+'-'+vid.publishedAt.split('-')[2]}}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="addToList" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Choose List to Save</h4>
+            </div>
+            <div class="modal-body">
+                <div id="clipboard_wrapper">
+                    <label>Select from previous lists</label>
+                    <select class="form-control" style="height: 49px;;">
+                        <option>My List1</option>
+                        <option>Cartoon Videos</option>
+                        <option>My Vids</option>
+                    </select><br/>
+                    <a ng-click="show='true'" style="font-size: 13px;"> + Create a new List Instant</a>
+                    <input ng-if="show=='true'" type="text" class="form-control" style="border:1px solid #ccc; width:96%; border-radius: 4px;"/>
+                    <br/><br/>
+                </div>
+            </div>
+            <div class="modal-footer" style="border-top:0px !important;">
+                <button class="btn btn-info" data-dismiss="modal" style="width:130px;" onclick="copyToClipboard('#clipboard_wrapper');"ng-click="flash.pop({title: 'List saved succesfully', body: '', type: 'success'})">
+                    Save</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 </div>

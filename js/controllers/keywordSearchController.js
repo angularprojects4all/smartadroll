@@ -1,5 +1,8 @@
-smartAdRoll.controller('keywordSearchCtrl', function ($rootScope, $scope, $state, $location, StorageService, $http) {
-    
+smartAdRoll.controller('keywordSearchCtrl', function ($rootScope, $scope, $state, $location, StorageService, $http, flash, exportService) {
+    $scope.flash = flash;
+    $rootScope.sideNavHeading = "Tool Suite";
+    $rootScope.sideNavActImg = "./assets/images/gearpng.png";
+    $rootScope.sideNavSubHeading = "Placement Search";
     $scope.init = function () {
         $scope.user = {
             userName: '', email: '', password: '',
@@ -22,6 +25,5 @@ smartAdRoll.controller('keywordSearchCtrl', function ($rootScope, $scope, $state
            $scope.keywords_bkp = response.data;
            $scope.totalCount = response.data.length;
         })
-    }
-
+    };
 });

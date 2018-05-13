@@ -237,8 +237,10 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
     .state('main.profile', {
         url:'/profile',
         templateUrl: 'partials/profile.html',
-        controller:function() {
-            
+        controller:function($rootScope, $scope) {
+            $rootScope.sideNavHeading = "My Account";
+            $rootScope.sideNavActImg = "./assets/images/myaccountpng.png";
+            $rootScope.sideNavSubHeading = "Account";
         }
     })
     .state('main.toolsuite', {
@@ -247,7 +249,7 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
         controller: 'toolsuiteCtrl'
     })
     .state('main.placementSearchbyvideo', {
-        url: '/toolsuite/placement-search/by-video',
+        url: '/toolsuite/placement-search/by-video?:search',
         templateUrl: 'partials/toolsuite/placement-search-byvideo.html',
         controller: 'placementSearchVideoCtrl'
     })
@@ -281,6 +283,48 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
         templateUrl: 'partials/toolsuite/placementlists.html',
         controller: 'keywordListCtrl'
     })
+    .state('main.billing', {
+        url: '/billing',
+        templateUrl: '/partials/billing.html',
+        controller:function($rootScope, $scope) {
+            $rootScope.sideNavHeading = "My Account";
+            $rootScope.sideNavActImg = "./assets/images/myaccountpng.png";
+            $rootScope.sideNavSubHeading = "Billing";
+        }
+    })
+    .state('main.changePassword', {
+        url: '/change-password',
+        templateUrl: '/partials/changepwd.html',
+        controller:function($rootScope, $scope) {
+            $rootScope.sideNavHeading = "My Account";
+            $rootScope.sideNavActImg = "./assets/images/myaccountpng.png";
+            $rootScope.sideNavSubHeading = "Change Password";
+        }
+    })
+    .state('main.notifications', {
+        url: '/notifications',
+        templateUrl: '/partials/notifications.html',
+        controller:function($rootScope, $scope) {
+            $rootScope.sideNavHeading = "My Account";
+            $rootScope.sideNavActImg = "./assets/images/myaccountpng.png";
+            $rootScope.sideNavSubHeading = "Notifications";
+        }
+    })
+    .state('main.usermgmt', {
+        url: '/user-management',
+        templateUrl: '/partials/users.html',
+        controller:function($rootScope, $scope) {
+            $rootScope.sideNavHeading = "My Account";
+            $rootScope.sideNavActImg = "./assets/images/myaccountpng.png";
+            $rootScope.sideNavSubHeading = "User Management";
+        }
+    })
+    .state('orderform', {
+        url: '/order-form',
+        templateUrl: '/partials/order-form.html',
+        controller:function($rootScope, $scope) {
+        }
+    })
     // .state('main.toolsuitesub', {
     //     url: '/toolsuite/:criteria',
     //     templateUrl: 'partials/videos.html',
@@ -293,7 +337,7 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
 }).config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('noCacheInterceptor');
 }]).config(['$compileProvider', function($compileProvider){
-    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|http?|javascript):/);
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|http?|javascript|ftp|mailto|tel|local|file|data|blob|webcal):/);
 }]).factory('noCacheInterceptor', function () {
     return {
         request: function (config) {
@@ -304,4 +348,28 @@ smartAdRoll.config(function ($stateProvider, $urlRouterProvider, $locationProvid
             return config;
         }
     };
-});
+}).factory("flash", function($rootScope) {
+
+    return {
+  
+      pop: function(message) {
+        switch(message.type) {
+          case 'success':
+          toastr.options = {
+              "positionClass": "toast-bottom-center",
+            }
+            toastr.success(message.body, message.title);
+            break;
+          case 'info':
+            toastr.info(message.body, message.title);
+            break;
+          case 'warning':
+            toastr.warning(message.body, message.title);
+            break;
+          case 'error':
+            toastr.error(message.body, message.title);
+            break;
+        }
+      }
+    };
+  });;
